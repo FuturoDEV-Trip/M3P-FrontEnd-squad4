@@ -1,0 +1,36 @@
+.mapspotview {
+  width: 620px;
+  height: 265px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  top: 2%;
+  left: 50px;
+  margin: 15px 30px 15px 30px;
+  border-color: rgb(13, 38, 57, 0.6);
+}
+
+.mapspotview p {
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.leaflet-popup-content {
+  margin: 13px;
+}
+
+.leaflet-popup-content p {
+  font-size: 8px;
+}
+.linkmapspotview {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+
+  margin-left: 10px;
+}

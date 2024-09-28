@@ -1,0 +1,87 @@
+/* Estilos padrão para telas grandes (desktops e laptops) */
+ /* Para telas grandes */
+ @media (min-width: 1200px) {
+ 
+ .grid-signin {
+    display: grid;
+    grid-template-areas: "formsignin imgsignin";
+    grid-template-columns: 60% 40%;
+
+  }
+  .grid-dashboard {
+    grid-template-areas:
+      "header header header"
+      "counter counter counter"
+      "map category category";
+    grid-template-rows: 8.75rem 3.125rem auto;
+    width: 100%;
+  }
+
+  .card-categorias {
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+  }
+ }
+
+  /* Estilos para tablets */
+  @media screen and (max-width: 1024px) {
+    .grid-signin {
+      grid-template-columns: 50% 50%;
+    }
+    .grid-dashboard {
+      grid-template-areas:
+        "header header header"
+        "counter counter counter"
+        "map category category";
+      grid-template-rows: 8.75rem 3.125rem auto;
+      width: 100%;
+    }
+  
+    .card-categorias {
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+    }
+    
+  }
+  
+  /* Estilos para smartphones */
+  @media screen and (max-width: 768px) {
+    .grid-signin {
+      grid-template-columns: 100%;
+      grid-template-areas:  
+      "formsignin""imgsignin";
+      grid-template-rows: 10% 90%;
+    }
+    .imgSignin{ color:transparent}
+    .grid-signup {
+      grid-template-columns: 100%;
+      grid-template-areas:  
+      "formsignup";
+      max-width: 48rem; 
+    }
+
+    input {
+      max-width: 20rem; /* 768px */
+    }
+ 
+    
+    .grid-spotregistration > Header {
+      display: none;
+  }
+    .grid-dashboard > Header {
+      display: none;
+  }
+  .grid-dashboard > map {
+    display: none;
+}
+  .grid-dashboard {
+    grid-template-areas:
+      "counter"
+      "cardSpots";
+    grid-template-rows: auto;
+height: 100vh;
+  }
+
+
+
+        }

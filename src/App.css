@@ -1,0 +1,14 @@
+
+#root {
+  width: 100vw;
+}
+INPUT{
+  padding:8px;
+  border-radius: 5px;
+  border-style: none;
+}
+select{
+  padding:10px;
+  border-radius: 5px;
+  border-style: none;
+}

@@ -1,0 +1,56 @@
+.map {
+  width: 26.25rem;
+  height: 21.56rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 295px;
+  left: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-width: 5px;
+  border-radius: 8px;
+  border-style: solid;
+
+  border-color: rgb(13, 38, 57, 0.6);
+}
+
+.leaflet-container {
+  width: 420px;
+  height: 330px;
+  border-radius: 8px;
+}
+
+.map p {
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.leaflet-popup-content {
+  margin: 13px;
+}
+
+.leaflet-popup-content p {
+  font-size: 8px;
+}
+.linkmap {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+
+  margin-left: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+ .map {
+  position: relative;
+  width: 19rem;
+  height: 13rem;
+  }
+}

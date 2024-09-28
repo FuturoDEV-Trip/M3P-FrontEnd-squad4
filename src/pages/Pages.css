@@ -1,0 +1,170 @@
+.grid-signin {
+  display: grid;
+  grid-template-areas: "formsignin imgsignin ";
+  grid-template-columns: 60% 40%;
+  height: 100vh;
+  background-image: url("/public/imgsignin.jpeg");
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+}
+
+.divsignin {
+  grid-area: divsignin;
+}
+
+.imgsignin {
+  grid-area: imgsignin;
+}
+
+.grid-signup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "formsignup imgsignup";
+  grid-template-columns: 50% 50%;
+  height: 100vw;
+  background-image: url("https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+}
+
+.imgsignin {
+  grid-area: imgsignin;
+}
+.divSignup {
+  grid-area:formsignup;
+}
+.imgSignup {
+  grid-area: imgsignup;
+}
+nav {
+  align-items: center;
+}
+
+.grid-dashboard {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "counter counter counter"
+    "map category category";
+    grid-template-rows: 8.75rem 3.125rem auto;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  width: 100%;
+  height: 100vw;
+}
+
+.counter {
+  grid-area: counter;
+}
+.map {
+  grid-area: map;
+}
+
+.Header {
+  grid-area: header;
+}
+
+.Menu{
+  grid-area: menu;
+}
+.hero {
+  grid-area: hero;
+}
+
+.Grid-Category {
+  grid-area: category;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.counter {
+  grid-area: counter;
+}
+
+.Grid-listspots {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "listspots";
+  background-image: url("https://images.pexels.com/photos/127673/pexels-photo-127673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  grid-template-rows: 8.75rem auto;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  width: 100vw;
+  height: 100vw;
+}
+
+.listspots {
+  grid-area: listspots;
+}
+
+.grid-spotregistration {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "hero"
+    "formspotregistration";
+  grid-template-rows: 8.75rem auto;
+  background-image: url("https://images.unsplash.com/photo-1588023708102-d578b324e5fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  width: 100%;
+}
+
+.divspotregistration {
+  grid-area: formspotregistration;
+}
+
+.grid-spotedit {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "hero"
+    "formspotedit";
+  grid-template-rows: 8.75rem auto;
+  background-image: url("https://images.unsplash.com/photo-1588023708102-d578b324e5fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  width: 100%;
+}
+
+.divspotedit {
+  grid-area: formspotedit;
+}
+
+.grid-spotview {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "spotview";
+  grid-template-rows: 8.75rem auto;
+  background-image: url("https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  width: 100vw;
+  height: 100vw;
+}
+
+.divspotview {
+  grid-area: spotview;
+}
+
+.logotripflowspotview {
+  height: 5rem;
+  margin-top: 2.3125rem;
+  margin-left: 2.3125rem;
+}
