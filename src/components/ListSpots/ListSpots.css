@@ -1,0 +1,90 @@
+
+
+
+.listspots {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 15px;
+  height: fit-content;
+  border-radius: 5px;
+  margin: 0 140px;
+  min-width: 850px;
+  color: rgb(13, 38, 57);
+  margin-top: 7% ;
+}
+.listspots h1{
+  color: rgb(13, 38, 57);
+  padding: 20PX 0PX 0PX 20PX;
+  text-align:initial;
+font-size: 35px;
+text-shadow: 3px 2px 1px rgb(193, 193, 198);
+}
+
+TBODY{
+  background: rgb(239, 243, 222); 
+}
+.list-categorias {
+  row-gap: 10px; 
+}
+
+.list-category{
+  gap: 10px; 
+  background: rgb(239, 243, 222); 
+    height: 50px;
+    align-items: center;
+    border-radius: 5px;
+    border-radius: 8px; */
+}
+.list-category:hover{
+    background-color: rgb(192, 224, 226);
+    color:rgb(13, 38, 57);
+}
+
+.list-categoria-txt {
+font-size: small;
+text-align: center;
+
+}
+
+.listspots th {
+color: white;
+background-color: rgb(13, 38, 57, 0.9);
+height: 50px;
+font-size: 17px;
+
+}
+.list-category td {
+  padding: 8px;
+  border:none;
+  
+  
+
+}
+
+.list-category a,
+.list-category button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.list-category a:hover,
+.list-category button:hover {
+  color: #007bff; 
+}
+
+.list-category a {
+  text-decoration: none;
+  color: #007bff; }
+
+.list-category button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+} */
+
+.list-category button:hover {
+  color: #dc3545;
+}

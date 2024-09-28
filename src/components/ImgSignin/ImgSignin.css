@@ -1,0 +1,20 @@
+.imgSignin {
+  width: 100vw;
+  min-height: fit-content;
+  display: flex;
+  justify-content: space-between
+}
+
+.h2imgsignin {
+  position: absolute;
+  line-height: 2;
+  align-items: center;
+  font-size: 30px;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.logotripflowe {
+  height: 6rem;
+  margin: 4rem
+}

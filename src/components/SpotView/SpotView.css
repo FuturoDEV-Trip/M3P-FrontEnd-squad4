@@ -1,0 +1,127 @@
+.divspotview {
+  padding: 20px;
+  background-color: rgb(239, 243, 222, 0.8);
+  border-radius: 10px;
+  color: #113241;
+  height: 60vw;
+  width: 45vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 12%;
+}
+
+.divspotview2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 20px;
+  color: #113241;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.h1spotview {
+  color: #113241;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 10px;
+  font-size: 45px;
+  bottom: 8px;
+  padding-bottom: 35px;
+  text-align: center;
+}
+
+.mapspotview {
+  margin-top: 180px;
+}
+.divSignin {
+  padding: 40px;
+  background-color: rgb(239, 243, 222, 0.8);
+  margin: 20px;
+  margin-right: 50px;
+  border-radius: 10px;
+}
+.formSignin {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 36px;
+  padding-right: 36px;
+  row-gap: 20px;
+}
+
+input {
+  min-height: 20px;
+  min-width: 200px;
+}
+.imgh1signin {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding-left: 36px;
+  padding-right: 36px;
+  row-gap: 20px;
+  max-height: fit-content;
+}
+
+.h1signin {
+  color: #113241;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 10px;
+  font-size: 45px;
+  bottom: 8px;
+  padding-bottom: 35px;
+}
+
+.logotripflowformsignin {
+  top: 10px;
+  right: 5px;
+  width: 70px;
+  padding-bottom: 35px;
+}
+
+.btnsignin {
+  padding-left: 36px;
+  padding-right: 36px;
+  min-height: 40px;
+  margin: 20px;
+  min-width: 220px;
+  background-color: #184e77;
+  color: #eef7d2;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.4s, transform 0.4s;
+  cursor: pointer;
+}
+
+.btnsignin:hover {
+  background-color: rgba(9, 93, 51, 0.8);
+  transform: translateY(-1px);
+}
+.btnsignup {
+  padding-left: 36px;
+  padding-right: 36px;
+  min-height: 40px;
+  min-width: 220px;
+  background-color: rgba(14, 19, 16, 0.8);
+  color: #eef7d2;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.4s, transform 0.4s;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.btnsignup:hover {
+  background-color: rgba(9, 93, 51, 0.8);
+  transform: translateY(-1px);
+}
+
+.pSignup {
+  margin-top: 30px;
+  color: #113241;
+}

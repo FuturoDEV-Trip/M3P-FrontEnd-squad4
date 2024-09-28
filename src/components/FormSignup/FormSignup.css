@@ -1,0 +1,150 @@
+.divSignup {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding-left: 2.5rem;
+  padding-bottom: 2.5rem;
+  background-color: rgb(239, 243, 222, 0.8);
+  border-radius: 1rem;
+  margin: 3.125rem;
+  width: 35rem;
+  height: fit-content;
+  margin-left: 10rem;
+}
+
+
+.imgh1Signup {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding-right: 2.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0px;
+  row-gap: 0.75rem;
+}
+.logotripflowformsignup {
+  top: 2.5rem;
+  right: 2.5rem;
+  height: 5.94rem;
+}
+
+.h1Signup {
+  font-size: 2.5em;
+  color: #114a4f;
+  /* padding-left: 60px; */
+}
+
+.formSignup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0rem 2rem 3rem 2rem;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: 1.875rem;
+  color: #11153a;
+}
+label {
+  padding: 0 0.62rem 0.62rem 0;
+}
+
+.inputsdivSignup select {
+  width: 13.4375rem;
+}
+
+.inputSignup2 {
+  width: 11.25rem;
+}
+
+.inputSignup {
+  width: 25rem;
+}
+
+.Signup {
+  border-radius: 0.3125rem;
+  border: none;
+  background-color: #5cb85c;
+  color: white;
+  cursor: pointer;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.25rem;
+}
+
+.formSignup .btnSignin {
+  height: 1.875rem;
+  width: 10rem;
+  background-color: rgba(14, 19, 16, 0.8);
+  color: #eef7d2;
+  box-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.3);
+  transition: background-color 0.4s, transform 0.4s;
+  cursor: pointer;
+  width: fit-content;
+  margin-right: 4.375rem;
+}
+
+.formSignup .btnSignup {
+  padding: 0px 2.25rem 0px 2.25rem;
+  height: 2.5rem;
+  background-color: #184e77;
+  margin: 1.875rem 0.3125rem 0px 0px;
+  width: 26rem;
+  color: #eef7d2;
+  border-radius: 0.25rem;
+  box-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.3);
+  transition: background-color 0.4s, transform 0.4s;
+  cursor: pointer;
+  /* width: fit-content; */
+}
+
+.pbtnsignup{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 1.25rem;
+}
+
+.pSignin {
+  margin-top: 3.125rem;
+  margin-right: 5rem;
+  color: #113241;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+ /* Estilos para smartphones */
+ @media screen and (max-width: 768px) {
+  .divSignup {
+    max-width: 48rem;
+      padding:0px;
+      margin-top: 0rem;
+      border-radius:0px;
+      margin-left: 0.1rem;
+      background-color: rgb(239, 243, 222, 0.4);
+  }
+  input {
+    max-width: 20rem;
+  }
+  button{
+    max-width: 21rem;
+  }
+  .formSignup {  
+
+    padding:0px;    
+    left:0px;   
+    max-width: 48rem;
+    gap: 5px
+  }
+  .imgSignup{ color:transparent}
+
+}
