@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
-import { api } from "../services/api";
+// import { api } from "../services/api";
+import axios from 'axios';
 
 export const AuthContext = createContext({
   user: null,
@@ -10,38 +11,54 @@ export const AuthContext = createContext({
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
-    const userStorage = localStorage.getItem("@tripflow:user");
+    const userStorage = localStorage.getItem("user");
 
     if (userStorage) {
       return JSON.parse(userStorage);
     }
-
     return null;
   });
   async function signIn({ email, password }) {
     try {
-      const response = await api(`/users?email=${email}`);
-      const data = await response.json();
 
-      if (data.length > 0) {
-        const usuario = data[0];
+      const response = await axios.post("http://localhost:3000/login", { //revisar
+        email, 
+        password, 
+      })       
+    
+      if(response.status === 200){
+        const { id, email, nome } = response.data.user;
+        const userData = { id, email, nome };
+        //configura localstorage
+              localStorage.setItem('token', response.data.Token)
+              localStorage.setItem('user',JSON.stringify(userData)) //tem que transformar em json. Revisar se salva no localstorage o user no back
+         setUser(userData);
+       
+        return true;
+            }
+      // const response = await api(`/users?email=${email}`);
+      // const data = await response.json();
 
-        if (usuario.password === password) {
-          setUser(usuario);
-          localStorage.setItem("@tripflow:user", JSON.stringify(usuario));
-          return true;
-        }
-      }
+      // if (data.length > 0) {
+      //   const usuario = data[0];
+
+      //   if (usuario.password === password) {
+      //     setUser(usuario);
+      //     localStorage.setItem("@tripflow:user", JSON.stringify(usuario));
+      //     return true;
+      //   }
+      // }
     } catch (error) {
       console.error("Erro ao autenticar", error);
+      return false; // Retorna falha
     }
 
-    return false;
   }
 
   function signOut() {
     setUser(null);
-    localStorage.removeItem("@tripflow:user");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   }
 
   return (
