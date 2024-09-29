@@ -1,12 +1,26 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 import './Header.css';
 import { AuthContext } from '../../contexts/AuthContext';
-import { LogOut } from 'lucide-react';
+import { LogOut, LogIn } from 'lucide-react';
 
 
 const Header = () => {
   const { signOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const clickSignOut = () => {
+    signOut();
+    navigate('/dashboard');
+  };
+
+  const clickSignIn = () => {
+    navigate('/login');
+  };
+
+    // Verifica se o token existe no localStorage
+    const isLoggedIn = !!localStorage.getItem('token');
+
   return (
     <header className="Header">
       <div className="Header--navLeft">
@@ -15,7 +29,12 @@ const Header = () => {
           <Link to="/dashboard">Dashboard: Todos os Locais</Link>
           <Link to="/locais">Meus Locais</Link>
           <Link to="/local">Cadastrar Local</Link>
-          <button onClick={signOut}><LogOut />Sair</button>
+       {isLoggedIn ? (
+            <button onClick={clickSignOut}><LogOut /> Sair</button>
+          ) : (
+            <button onClick={clickSignIn}><LogIn /> Login</button>
+
+          )}
         </nav>
       </div>
     </header>
