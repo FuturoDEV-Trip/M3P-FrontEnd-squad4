@@ -14,12 +14,12 @@ function RoutesComponent() {
         <Routes>
         <Route path='/login' element={<SigninPage />} />
         <Route path='/cadastro' element={<SignupPage />} />
-        <Route path='/' element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
-        <Route path='/dashboard' element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
+        <Route path='/' element={<DashboardPage />} />
+        <Route path='/dashboard' element={<DashboardPage />} />
         <Route path='/locais' element={<PrivateRoute><SpotsPage /></PrivateRoute>} />
         <Route path='/local' element={<PrivateRoute><SpotRegistrationPage /></PrivateRoute>} />
         <Route path='/local/edit/:id' element={<PrivateRoute><SpotEditPage /></PrivateRoute>} /> 
-        <Route path='/local/:id' element={<PrivateRoute><SpotViewPage /></PrivateRoute>} /> 
+        <Route path='/local/:id' element={<SpotViewPage />} /> 
         <Route path='*' element={<Navigate replace to='/dashboard' />} />
     </Routes>
 
