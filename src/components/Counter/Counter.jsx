@@ -9,7 +9,7 @@ const Counter = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3000/users");
+        const response = await fetch("http://localhost:3000/usuarios");
         const data = await response.json();
         setUserCount(data.length);
       } catch (error) {
@@ -19,11 +19,11 @@ const Counter = () => {
     const fetchSpots = async () => {
       // Nova função para buscar spots
       try {
-        const response = await fetch("http://localhost:3000/spots");
+        const response = await fetch("http://localhost:3000/locais");
         const data = await response.json();
         setSpotCount(data.length);
       } catch (error) {
-        console.error("Erro ao buscar spots:", error);
+        console.error("Erro ao buscar locais", error);
       }
     };
     fetchUsers();

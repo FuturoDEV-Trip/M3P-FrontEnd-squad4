@@ -1,11 +1,20 @@
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./CardSpots.css";
-import { useSpots } from "../../hooks/useSpots";
 import { Link } from "react-router-dom";
 
-Link;
 function CardSpots() {
-  const spots = useSpots();
+  const [spots, setSpots] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/locais")
+      .then(response => {
+        setSpots(response.data);
+      })
+      .catch(error => {
+        console.error("Houve um erro ao buscar os locais!", error);
+      });
+  }, []);
 
   return (
     <div className="Grid-Category">
@@ -14,7 +23,7 @@ function CardSpots() {
           <div className="card-category" key={spot.id}>
             <Link to={`/local/${spot.id}`}>
               <div className="card-categoria-txt">
-                <span>{spot.name} </span>
+                <span>{spot.nome_do_destino}</span>
               </div>
             </Link>
           </div>
