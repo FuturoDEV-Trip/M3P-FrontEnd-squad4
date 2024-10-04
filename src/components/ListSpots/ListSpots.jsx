@@ -31,13 +31,13 @@ function ListSpots() {
 
           
           const mappedSpots = response.data.map((spot) => {
-            let coordinates = { lat: null, lon: null };
+            // let coordinates = { lat: null, lon: null };
         
-            try {
-                coordinates = JSON.parse(spot.coordenadas_geograficas);
-            } catch (e) {
-                console.error("Erro ao analisar coordenadas:", e);
-            }
+            // try {
+            //     coordinates = JSON.parse(spot.coordenadas_geograficas);
+            // } catch (e) {
+            //     console.error("Erro ao analisar coordenadas:", e);
+            // }
         
             return {
                 id: spot.id,
@@ -45,8 +45,8 @@ function ListSpots() {
                 description: spot.descricao,
                 address: spot.localidade,
                 geoLocality: spot.coordenadas_geograficas,
-                latitude: coordinates.lat,
-                longitude: coordinates.lon,
+                latitude: spot.coordenadas_geograficas.lat,
+                longitude:  spot.coordenadas_geograficas.lon,
                 user_id: spot.usuario_id,
             };
         });
@@ -68,41 +68,43 @@ function ListSpots() {
   const userSpots = localSpots.filter((spot) => spot.user_id === userId);
 
   const deleteSpot = async (id) => {
-    const spot = localSpots.find((spot) => spot.id === id);
-    if (spot.user_id !== userId) {
-      alert("Você não tem permissão para excluir este local");
-      return;
-    }
-
     const confirmation = window.confirm("Tem certeza de que deseja excluir este local?");
     if (!confirmation) {
-      return;
+        return;
     }
 
     const token = localStorage.getItem("token");
+    console.log("Token antes da deleção:", token); // Verifique se o token está correto
+
     if (!token) {
-      alert("Você precisa estar logado para excluir um local.");
-      return;
+        alert("Você precisa estar logado para excluir um local.");
+        return;
     }
 
     try {
-      const response = await axios.delete(`${apiBaseUrl}/spots/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+        const response = await axios.delete(`${apiBaseUrl}/destinos/${id}`, {
+            headers: {
+                Authorization: token,
+            },
+        });
 
-      if (response.status === 200) {
-        alert("Local apagado com sucesso!");
-        setLocalSpots(localSpots.filter((spot) => spot.id !== id));
-      } else {
-        alert("Erro ao apagar local");
-      }
+        if (response.status === 204) {
+            setLocalSpots(prevSpots => prevSpots.filter((spot) => spot.id !== id));
+            alert("Local apagado com sucesso!");
+        } else {
+            alert("Erro ao apagar local");
+        }
     } catch (error) {
-      console.error("Houve um erro ao apagar o local:", error);
-      alert("Houve um erro ao apagar o local");
+        console.error("Houve um erro ao apagar o local:", error.response ? error.response.data : error);
+        
+        if (error.response && error.response.status === 401) {
+            alert("Sessão expirada ou não autorizado. Por favor, faça login novamente.");
+            // Aqui você pode redirecionar para a página de login, se necessário
+        } else {
+            alert("Houve um erro ao apagar o local");
+        }
     }
-  };
+};
 
   return (
     <div className="listspots">
@@ -123,7 +125,7 @@ function ListSpots() {
               <td>{spot.address}</td>
               <td>
                 <a
-                  href={`https://www.google.com/maps/?q=${spot.geoLocality}`}
+                  href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
