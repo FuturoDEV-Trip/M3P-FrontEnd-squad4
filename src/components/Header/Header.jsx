@@ -27,13 +27,20 @@ const Header = () => {
        <div className="logodash" />
         <nav>
           <Link to="/dashboard">Dashboard: Todos os Locais</Link>
-          <Link to="/locais">Meus Locais</Link>
-          <Link to="/local">Cadastrar Local</Link>
-       {isLoggedIn ? (
+          {isLoggedIn && (
+            <>
+              <Link to="/locais">Meus Locais</Link>
+              <Link to="/local">Cadastrar Local</Link>
+            </>
+          )}
+      {isLoggedIn ? (
             <button onClick={clickSignOut}><LogOut /> Sair</button>
           ) : (
-            <button onClick={clickSignIn}><LogIn /> Login</button>
-
+            <>
+              <Link to="/cadastro">Cadastre-se aqui</Link>
+              <button onClick={clickSignIn}><LogIn /> Login</button>
+              {/* <Link to="/cadastro">Cadastre-se aqui</Link> */}
+            </>
           )}
         </nav>
       </div>
