@@ -92,7 +92,8 @@ nav {
   grid-template-areas:
     "header"
     "listspots";
-  background-image: url("https://images.pexels.com/photos/127673/pexels-photo-127673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  /* background-image: url("https://images.pexels.com/photos/127673/pexels-photo-127673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
+  background-image: url(" https://catracalivre.com.br/wp-content/uploads/2023/11/istock-1221548744-910x629.jpg");
   grid-template-rows: 8.75rem auto;
   background-position: center;
   background-size: cover;
