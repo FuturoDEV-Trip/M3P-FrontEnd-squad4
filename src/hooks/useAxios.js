@@ -1,41 +1,36 @@
-import axios from "axios";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const useAxios = axios.create({
-    baseURL: "http://localhost:3000"
-});
+const useAxios = () => {
+  const navigate = useNavigate();
 
-useAxios.interceptors.request.use(
-    (config) => {
-        const token = localStorage.getItem('token') || localStorage.getItem('Token');
-        console.log("Token no Request:", token); // Verifique se o token está correto
+  const apiBaseUrl = "http://localhost:3000"; // URL base da sua API
 
-        if (token) {
-            config.headers.Authorization = `${token}`;
-        }
-        config.headers['Content-Type'] = "application/json";
-        return config;  
-    },
-    (error) => {
-        console.error("Erro no Request:", error); // Log de erro
-        return Promise.reject(error);
+  const axiosInstance = axios.create({
+    baseURL: apiBaseUrl,
+  });
+
+  // Interceptar requisições para adicionar o token de autorização
+  axiosInstance.interceptors.request.use(config => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = token;
     }
-);
+    return config;
+  });
 
-// Interceptor para tratar respostas
-useAxios.interceptors.response.use(
-    (response) => response,
-    (error) => {
-        console.error("Erro na Resposta:", error); // Log detalhado do erro
-        if (error.response) {
-            if (error.response.status === 401) {
-                alert("Sessão expirada ou não autorizado. Por favor, faça login novamente.");
-                // Aqui você pode redirecionar para a página de login ou outra ação
-            } else {
-                console.error("Erro:", error.response.data); // Log do erro retornado pela API
-            }
-        }
-        return Promise.reject(error);
+  const checkAuth = () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("Você precisa estar logado para acessar esta página.");
+      navigate("/login"); // Redireciona para a página de login
+      return false;
     }
-);
+    return true;
+  };
+
+  return { axiosInstance, checkAuth };
+};
 
 export default useAxios;
