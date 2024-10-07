@@ -25,8 +25,9 @@ function FormSpotEdit() {
     const getSpot = async () => {
       try {
         const response = await axiosInstance.get(`/destinos/${id}`);
-        if (response.data && response.data !== spot) {
-        setSpot(response.data);}
+        if (response.data && JSON.stringify(response.data) !== JSON.stringify(spot)) {
+          setSpot(response.data);
+        }
       } catch (error) {
         console.error("Erro ao buscar local:", error);
       } finally {
