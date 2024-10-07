@@ -19,15 +19,15 @@ function ListSpots() {
   }
  const getSpots = async () => {
           try {
-            const response = await useAxios.get("/destinos");
+            const response = await useAxios.get("/locais");
         const data = response.data.map(spot => ({
           id: spot.id,
-          name: spot.nome_do_destino,
+          name: spot.nome,
           description: spot.descrição,
           address: spot.localidade,
           geoLocality: spot.coordenadas_geograficas,
-          latitude: JSON.parse(spot.coordenadas_geograficas).lat,
-          longitude: JSON.parse(spot.coordenadas_geograficas).lon,
+          latitude: spot.coordenadas_geograficas.lat,
+          longitude: spot.coordenadas_geograficas.lon,
           user_id: spot.usuario_id
         }));
         // setSpots(data);
@@ -56,7 +56,7 @@ function ListSpots() {
     }
 
     try {
-      const response = await useAxios.delete(`/destinos/${id}`);
+      const response = await useAxios.delete(`/locais/${id}`);
       if (response.status !== 200) {
         console.error("Erro na resposta da API:", response.statusText);
         alert("Erro ao apagar local");

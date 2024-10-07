@@ -10,28 +10,28 @@ function useSpots() {
 
   useEffect(() => {
     const getSpots = async () => {
-      try {
+    try {
         const response = await axios.get('http://localhost:3000/locais');
         const data = response.data.map(spot => ({
-          id: spot.id,
-          name: spot.nome_do_destino,
-          description: spot.descricao,
-          address: spot.localidade,
-          geoLocality: spot.coordenadas_geograficas,
-          latitude: JSON.parse(spot.coordenadas_geograficas).lat,
-          longitude: JSON.parse(spot.coordenadas_geograficas).lon,
-          userId: spot.usuario_id, 
-          cep: spot.cep,
-          createdAt: spot.createdAt, 
-          updatedAt: spot.updatedAt
+        id: spot.id,
+          name: spot.nome,
+        description: spot.descricao,
+        address: spot.localidade,
+        geoLocality: spot.coordenadas_geograficas,
+          latitude: spot.coordenadas_geograficas.lat,
+          longitude: spot.coordenadas_geograficas.lon,
+        userId: spot.usuario_id, 
+        cep: spot.cep,
+        createdAt: spot.createdAt, 
+        updatedAt: spot.updatedAt
         }));
-        setSpots(data);
-      } catch (error) {
-        console.error('Erro ao buscar locais', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+      setSpots(data);
+    } catch (error) {
+      console.error('Erro ao buscar locais', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
     getSpots();
   }, []);

@@ -23,7 +23,7 @@ function CardSpots() {
           <div className="card-category" key={spot.id}>
             <Link to={`/local/${spot.id}`}>
               <div className="card-categoria-txt">
-                <span>{spot.nome_do_destino}</span>
+                <span>{spot.nome}</span>
               </div>
             </Link>
           </div>

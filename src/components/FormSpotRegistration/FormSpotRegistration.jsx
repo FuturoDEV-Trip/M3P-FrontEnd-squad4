@@ -407,7 +407,7 @@ function FormSpotRegistration() {
       if (!checkAuth()) return;
 
       try {
-        const response = await axiosInstance.get("/destinos");
+        const response = await axiosInstance.get("/locais");
         setSpots(response.data);
       } catch (error) {
         console.error('Erro ao buscar locais', error);
@@ -423,7 +423,7 @@ function FormSpotRegistration() {
     try {
       // const dataSpots = {
       //   usuario_id: userId,
-      //   nome_do_destino: "Teste Local",
+      //   nome: "Teste Local",
       //   descricao: "Descrição de teste",
       //   localidade: "Rua Exemplo, 123, Exemplo",
       //   cep: "00000-000",
@@ -431,7 +431,7 @@ function FormSpotRegistration() {
       // };
           const dataSpots = {
         usuario_id: userId,
-        nome_do_destino: data.name,
+        nome: data.name,
         descricao: data.descricao,
         localidade: data.address,
         cep: data.cep,
@@ -443,7 +443,7 @@ function FormSpotRegistration() {
   
       console.log("Dados a serem enviados:", dataSpots); 
 
-      await axiosInstance.post("/destinos", dataSpots);
+      await axiosInstance.post("/locais", dataSpots);
       alert("Local cadastrado com sucesso!");
       reset();
       navigate("/locais");
