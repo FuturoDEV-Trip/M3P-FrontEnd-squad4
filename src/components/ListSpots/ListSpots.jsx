@@ -16,10 +16,10 @@ function ListSpots() {
 
     const fetchSpots = async () => {
       try {
-        const response = await axiosInstance.get('/destinos');
+        const response = await axiosInstance.get('/locais');
         const mappedSpots = response.data.map((spot) => ({
           id: spot.id,
-          name: spot.nome_do_destino,
+          name: spot.nome,
           description: spot.descricao,
           address: spot.localidade,
           geoLocality: spot.coordenadas_geograficas,
@@ -29,8 +29,8 @@ function ListSpots() {
         }));
         setLocalSpots(mappedSpots);
       } catch (error) {
-        console.error("Houve um erro ao buscar os destinos:", error);
-        alert("Houve um erro ao buscar os destinos");
+        console.error("Houve um erro ao buscar os locais:", error);
+        alert("Houve um erro ao buscar os locais");
       }
     };
 
@@ -46,7 +46,7 @@ function ListSpots() {
     }
 
     try {
-      await axiosInstance.delete(`/destinos/${id}`);
+      await axiosInstance.delete(`/locais/${id}`);
       setLocalSpots(prevSpots => prevSpots.filter((spot) => spot.id !== id));
       alert("Local apagado com sucesso!");
     } catch (error) {

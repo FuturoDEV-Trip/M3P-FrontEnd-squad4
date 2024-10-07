@@ -21,11 +21,11 @@ const Map = () => {
         const response = await axios.get("http://localhost:3000/locais");
         const data = response.data.map(spot => ({
           id: spot.id,
-          name: spot.nome_do_destino,
+          name: spot.nome,
           description: spot.descrição,
           geoLocality: spot.localidade,
-          latitude: JSON.parse(spot.coordenadas_geograficas).lat,
-          longitude: JSON.parse(spot.coordenadas_geograficas).lon
+          latitude: spot.coordenadas_geograficas.lat,
+          longitude: spot.coordenadas_geograficas.lon
         }));
         setSpots(data);
         if (data.length > 0) {

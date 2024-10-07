@@ -24,7 +24,7 @@ function FormSpotEdit() {
 
     const getSpot = async () => {
       try {
-        const response = await axiosInstance.get(`/destinos/${id}`);
+        const response = await axiosInstance.get(`/locais/${id}`);
         if (response.data && JSON.stringify(response.data) !== JSON.stringify(spot)) {
           setSpot(response.data);
         }
@@ -40,7 +40,7 @@ function FormSpotEdit() {
 
   useEffect(() => {
     if (spot) {
-      setValue("name", spot.nome_do_destino);
+      setValue("name", spot.nome);
       setValue("description", spot.descricao);
       setValue("cep", spot.cep);
       setValue("address", spot.localidade);
@@ -59,7 +59,7 @@ function FormSpotEdit() {
 
     const dataSpots = {
       usuario_id: spot.usuario_id,
-      nome_do_destino: data.name,
+      nome: data.name,
       descricao: data.description,
       localidade: data.address,
       cep: data.cep,
@@ -70,7 +70,7 @@ function FormSpotEdit() {
     };
     
     try {
-      await axiosInstance.put(`/destinos/${id}`, dataSpots, {
+      await axiosInstance.put(`/locais/${id}`, dataSpots, {
         headers: {
           "Content-Type": "application/json",
         },
