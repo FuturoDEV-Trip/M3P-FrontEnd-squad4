@@ -16,7 +16,7 @@ function ListSpots() {
 
     const fetchSpots = async () => {
       try {
-        const response = await axiosInstance.get('/locais');
+        const response = await axiosInstance.get('/locais/meus-locais');
         const mappedSpots = response.data.map((spot) => ({
           id: spot.id,
           name: spot.nome,
@@ -35,9 +35,9 @@ function ListSpots() {
     };
 
     fetchSpots();
-  }, [checkAuth, axiosInstance]);
+  }, []);     //esto fazia muitas requesições indefinidamente
 
-  const userSpots = localSpots.filter((spot) => spot.user_id === userId);
+  // const userSpots = localSpots.filter((spot) => spot.user_id === userId); //Agora não precisa fazer esse filtro
 
   const deleteSpot = async (id) => {
     const confirmation = window.confirm("Tem certeza de que deseja excluir este local?");
@@ -68,7 +68,7 @@ function ListSpots() {
           </tr>
         </thead>
         <tbody>
-          {userSpots.map((spot) => (
+          {localSpots.map((spot) => (
             <tr key={spot.id} className="list-category">
               <td>{spot.name}</td>
               <td>{spot.address}</td>

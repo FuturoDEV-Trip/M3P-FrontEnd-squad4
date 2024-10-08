@@ -402,20 +402,19 @@ function FormSpotRegistration() {
     }
   }, [latitude, longitude]);
 
-  useEffect(() => {
-    const getSpots = async () => {
-      if (!checkAuth()) return;
+  // useEffect(() => {
+  //   const getSpots = async () => {
+  //     if (!checkAuth()) return;
 
-      try {
-        const response = await axiosInstance.get("/locais");
-        setSpots(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar locais', error);
-      }
-    };
-
-    getSpots();
-  }, [axiosInstance, checkAuth]);
+  //     try {
+  //       const response = await axiosInstance.get("/locais");
+  //       setSpots(response.data);
+  //     } catch (error) {
+  //       console.error('Erro ao buscar locais', error);
+  //     }
+  //   };
+  //   getSpots();
+  // }, [axiosInstance, checkAuth]);
 
   async function addSpot(data) {
     if (!checkAuth()) return;
