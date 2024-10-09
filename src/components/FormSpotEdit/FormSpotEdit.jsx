@@ -151,11 +151,11 @@ function FormSpotEdit() {
               placeholder="Digite o CEP"
               {...register("cep", {
                 validate: async (value) => {
-                  if (value.length !== 8) {
+                  if (value && value.length !== 8) {
                     return "CEP deve ter 8 dígitos, sem hífen.";
                   }
-                  await getAddress(value);
-                  return true;
+                  if (value) {await getAddress(value);
+                  } return true;
                 },
               })}
               onBlur={(e) => getAddress(e.target.value)}
