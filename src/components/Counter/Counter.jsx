@@ -9,10 +9,13 @@ const Counter = () => {
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const response = await fetch("http://localhost:3000/dashboard");
-        const data = await response.json();
-        setUserCount(data.usuarios);
-        setSpotCount(data.locais);
+        const dashboardResponse = await fetch("http://localhost:3000/dashboard");
+        const dashboardData = await dashboardResponse.json();
+        setSpotCount(dashboardData.locais);
+        const usersResponse = await fetch("http://localhost:3000/usuario/logado");
+        const usersData = await usersResponse.json();
+        setUserCount(usersData.usuarios);
+
       } catch (error) {
         console.error("Erro ao buscar usuários e locais:", error);
       }

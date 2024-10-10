@@ -44,15 +44,16 @@ export function AuthProvider({ children }) {
 
   }
 
-  function signOut() {
-    setUser(null);
-    async function signOut() {
+ async function signOut() {
+  const userId = user?.id;
+   setUser(null);
+   localStorage.removeItem("token");
+   localStorage.removeItem("user");
       try {
-    const userId = user.id;
-     await axios.post("http://localhost:3000/usuario/logout", { userId });
-       setUser(null);
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+        if (userId) {
+          await axios.post("http://localhost:3000/usuario/logout", { userId });
+        }
+  
   }catch (error) {
     console.error("Erro ao deslogar", error);
   }}
