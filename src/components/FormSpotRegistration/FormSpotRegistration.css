@@ -5,13 +5,21 @@
   padding: 1.25rem;
   flex-wrap: wrap;
   background-color: rgba(244, 246, 234, 0.8);
-  border-radius: 0.625rem;
-  width: 60vw;
+  border-radius: 1rem;
+  width: 40rem;
   margin: 3.125rem auto;
   gap: 1.25rem;
-  padding-top: 0.9375rem;
+  padding: 0.9375rem;
+  padding-left: 2.5rem;
+padding-bottom: 2.5rem;
+  height: fit-content;
   font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+
+
+
+
 
 .pspotregistration {
   padding-bottom: 1.25rem;
@@ -49,9 +57,18 @@
 }
 
 .h1spotregistration {
-  margin-left: 5.9375rem;
+  /* margin-left: 5.9375rem; */
   padding-top: 0.625rem;
+    padding: 0px;
+    color:white;
+    font-size: 1.625rem;
+      font-size: 2.5em;
+      color: #114a4f;
+  text-align: center;
+  padding-left: 7rem
+      /* padding-left: 10.625rem; */
 }
+
 
 .formspotregistration {
   display: grid;
@@ -59,7 +76,7 @@
   align-content: space-between;
   align-items: baseline;
   justify-content: space-evenly;
-  padding: 1.25rem 0.625rem 1.25rem 1.875rem;
+  padding: 0.25rem 0.825rem 1.25rem 1.875rem;
   min-width: 50vw;
   color: #11153a;
 }
@@ -71,7 +88,7 @@
 }
 
 .textspotregistration {
-  width: 47.8125rem;
+  width: 34rem;
   border-style: none;
   height: 3.125rem;
   padding-right: 1.25rem;
@@ -148,15 +165,11 @@ select {
 }
 
 .inputspotregistration2 {
-  width: 25rem;
+  width: 35rem;
 }
 
 .inputspotregistration3 {
   width: 23.4375rem;
-}
-
-.inputspotregistration {
-  width: 15.625rem;
 }
 
 .spotregistration {
@@ -168,11 +181,7 @@ select {
   cursor: pointer;
 }
 
-.h1spotregistration {
-  font-size: 2.5em;
-  color: #114a4f;
-  padding-left: 10.625rem;
-}
+
 
 .btnspotregistration {
   padding-left: 2.25rem;
@@ -196,24 +205,25 @@ select {
 
 .blocform {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1.25rem;
-  max-width: 90%
+  max-width: 90%;
+    padding-top: 0.5rem;
 }
 
-.blocform2 {
+/* .blocform2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1.25rem;
   width: 90%
-}
+} */
 
-.blocform3 {
+/* .blocform3 {
   display: grid;
   grid-template-columns: 30% 70%;
   gap: 1.25rem;
   width: 90%
-}
+} */
 
 @media screen and (max-width: 48rem) {
 
@@ -226,6 +236,10 @@ select {
    input {
     max-width: 20rem;
   }
+  
+.textspotregistration {
+ max-width: 20rem;}
+
   button{
     max-width: 21rem;
   }
@@ -255,12 +269,7 @@ select {
     color:white;
     align-content: flex-start;
   }
-  .h1spotregistration {
-    padding: 0px;
-    color:white;
-    font-size: 1.625rem;
-
-  }
+  
   .logotripflowformsignup {
     size:0.00625rem
   }
@@ -268,5 +277,8 @@ select {
   .h1spotregistration {
     margin-left: 0.3125rem;
     padding-top: 0.3125rem;
+    color:beige;
+    padding-left: 0px
   }
 }
+

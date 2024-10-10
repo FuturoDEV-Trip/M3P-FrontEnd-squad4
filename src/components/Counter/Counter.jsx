@@ -7,27 +7,17 @@ const Counter = () => {
   const [spotCount, setSpotCount] = useState(0);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchDashboard = async () => {
       try {
-        const response = await fetch("http://localhost:3000/users");
+        const response = await fetch("http://localhost:3000/dashboard");
         const data = await response.json();
-        setUserCount(data.length);
+        setUserCount(data.usuarios);
+        setSpotCount(data.locais);
       } catch (error) {
-        console.error("Erro ao buscar usuários:", error);
+        console.error("Erro ao buscar usuários e locais:", error);
       }
     };
-    const fetchSpots = async () => {
-      // Nova função para buscar spots
-      try {
-        const response = await fetch("http://localhost:3000/spots");
-        const data = await response.json();
-        setSpotCount(data.length);
-      } catch (error) {
-        console.error("Erro ao buscar spots:", error);
-      }
-    };
-    fetchUsers();
-    fetchSpots();
+    fetchDashboard();
   }, []);
 
   return (

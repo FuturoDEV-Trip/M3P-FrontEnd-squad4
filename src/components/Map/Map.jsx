@@ -1,20 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useSpots } from "../../hooks/useSpots";
-
+import axios from "axios";
 import "leaflet/dist/leaflet.css";
 import "./Map.css";
 import { Link } from "react-router-dom";
 
 const Map = () => {
-  const spots = useSpots();
+  const [spots, setSpots] = useState([]);
   const [center, setCenter] = useState([-27.5953, -48.5482]);
 
+  // useEffect(() => {
+  //   if (spots.length > 0) {
+  //     setCenter([spots[0].latitude, spots[0].longitude]);
+  //   }
+  // }, [spots]);
   useEffect(() => {
-    if (spots.length > 0) {
-      setCenter([spots[0].latitude, spots[0].longitude]);
-    }
-  }, [spots]);
+    const getSpots = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/locais");
+        const data = response.data.map(spot => ({
+          id: spot.id,
+          name: spot.nome,
+          description: spot.descrição,
+          geoLocality: spot.localidade,
+          latitude: spot.coordenadas_geograficas.lat,
+          longitude: spot.coordenadas_geograficas.lon
+        }));
+        setSpots(data);
+        if (data.length > 0) {
+          setCenter([data[0].latitude, data[0].longitude]);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar locais', error);
+      }
+    };
+
+    getSpots();
+  }, []);
+
 
   return (
     <div className="map">

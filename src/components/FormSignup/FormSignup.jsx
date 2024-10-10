@@ -2,30 +2,25 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import "./FormSignup.css";
+// import axios from 'axios';
 
 function FormSignup() {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const {     register,    handleSubmit,    setValue,  formState: { errors }, reset, } = useForm();
   const navigate = useNavigate();
 
   async function addUser(data) {
     try {
-      const response = await fetch("http://localhost:3000/users");
-      const users = await response.json();
-      const existingUser = users.find(
-        (user) => user.email === data.email || user.cpf === data.cpf
-      );
-      if (existingUser) {
-        alert("Usuário já cadastrado com o mesmo email ou CPF");
-        return;
-      }
+      // const response = await fetch("http://localhost:3000/usuarios");
+      // const users = await response.json();
+      // const existingUser = users.find(
+      //   (user) => user.email === data.email || user.cpf === data.cpf
+      // );
+      // if (existingUser) {
+      //   alert("Usuário já cadastrado com o mesmo email ou CPF");
+      //   return;
+      // }
 
-      const resposta = await fetch("http://localhost:3000/users", {
+      const resposta = await fetch("http://localhost:3000/usuarios", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +44,7 @@ function FormSignup() {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const data = await response.json();
       const fullAddress = `${data.logradouro}, ${data.bairro}, ${data.localidade}/${data.uf}`;
-      setValue("address", fullAddress);
+      setValue("endereco", fullAddress);
     } catch (error) {
       console.error(error);
     }
@@ -78,15 +73,15 @@ function FormSignup() {
             <input
               className="inputSignup"
               placeholder="Digite seu nome completo"
-              name="name"
-              {...register("name", {
+              name="nome"
+              {...register("nome", {
                 required: "Nome é obrigatório",
                 validate: (value) =>
                   value.split(" ").length > 1 ||
-                  "Nome deve ter pelo menos duas palavras",
+                  "Faltou o sobrenome. Nome deve ter pelo menos duas palavras",
               })}
             />
-            {errors.name && <p>{errors.name.message}</p>}
+            {errors.nome && <p>{errors.nome.message}</p>}
           </label>
 
           <label>
@@ -100,7 +95,7 @@ function FormSignup() {
                 validate: (value) =>
                   value.length === 11 ||
                   value.length === 14 ||
-                  "CPF deve ter 11 ou 14 dígitos",
+                  "CPF deve ter 11 ou 14 dígitos se trouxer ponto e traço",
               })}
             />
             {errors.cpf && <p>{errors.cpf.message}</p>}
@@ -110,15 +105,15 @@ function FormSignup() {
             Data de Nascimento *
             <input
               className="inputSignup2"
-              name="birthDate"
+              name="data_nascimento"
               type="date"
-              {...register("birthDate", {
+              {...register("data_nascimento", {
                 required: "Data de Nascimento é obrigatória",
               })}
             />
-            {errors.birthDate && <p>{errors.birthDate.message}</p>}
+            {errors.data_mascimento && <p>{errors.data_mascimento.message}</p>}
           </label>
-          <label>
+          {/* <label>
             Telefone *
             <input
               className="inputSignup2"
@@ -127,16 +122,16 @@ function FormSignup() {
               {...register("phone", { required: "O telefone é obrigatório" })}
             />
             {errors.phone && <p>{errors.phone.message}</p>}
-          </label>
+          </label> */}
           <label>
             Sexo
-            <select className="inputSignup2" name="gender" {...register("gender")}>
+            <select className="inputSignup2" name="sexo" {...register("sexo")}>
               <option value="">Selecione</option>
               <option value="feminino">Feminino</option>
               <option value="masculino">Masculino</option>
               <option value="outro">Outro</option>
             </select>
-            {errors.gender && <p>{errors.gender.message}</p>}
+            {errors.sexo && <p>{errors.sexo.message}</p>}
           </label>
           <label>
             CEP *
@@ -163,10 +158,10 @@ function FormSignup() {
             <input
               placeholder="Endereço"
               className="inputSignup"
-              name="address"
-              {...register("address", { required: "Endereço é obrigatório" })}
+              name="endereco"
+              {...register("endereco", { required: "Endereço é obrigatório" })}
             />
-            {errors.address && <p>{errors.address.message}</p>}
+            {errors.endereco && <p>{errors.endereco.message}</p>}
           </label>
 
           <label>
@@ -174,13 +169,13 @@ function FormSignup() {
             <input
               className="inputSignup2"
               placeholder="Digite o número"
-              name="addressNumber"
+              name="numero"
               type="number"
-              {...register("addressNumber", {
+              {...register("numero", {
                 required: "Número é obrigatório",
               })}
             />
-            {errors.addressNumber && <p>{errors.addressNumber.message}</p>}
+            {errors.numero && <p>{errors.numero.message}</p>}
           </label>
 
           <label>
@@ -188,11 +183,11 @@ function FormSignup() {
             <input
               className="inputSignup"
               placeholder="Complemento"
-              name="addressComplement"
-              {...register("addressComplement")}
+              name="complemento"
+              {...register("complemento")}
             />
-            {errors.addressComplement && (
-              <p>{errors.addressComplement.message}</p>
+            {errors.complemento && (
+              <p>{errors.complemento.message}</p>
             )}
           </label>
 
