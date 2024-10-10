@@ -23,6 +23,14 @@ html {
   width: 100%;
   height: 100%;
 }
+
+/* Para tentar tirar a lista branca na direita  */
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* overflow-x: hidden;  */
 }

@@ -1,5 +1,5 @@
 import "./ListSpots.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Trash, Edit, Eye } from "lucide-react";
 import useAxios from '../../hooks/useAxios';
@@ -14,7 +14,7 @@ function ListSpots() {
   useEffect(() => {
     if (!checkAuth()) return;
 
-    const fetchSpots = async () => {
+    const getSpots = async () => {
       try {
         const response = await axiosInstance.get('/locais/meus-locais');
         const mappedSpots = response.data.map((spot) => ({
@@ -34,8 +34,8 @@ function ListSpots() {
       }
     };
 
-    fetchSpots();
-  }, []);     //esto fazia muitas requesições indefinidamente
+    getSpots();
+  }, []);     // fazia muitas requesições indefinidamente
 
   // const userSpots = localSpots.filter((spot) => spot.user_id === userId); //Agora não precisa fazer esse filtro
 
