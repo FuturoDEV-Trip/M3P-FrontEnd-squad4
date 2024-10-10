@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
-
 import axios from 'axios';
 
 export const AuthContext = createContext({
@@ -29,9 +28,9 @@ export function AuthProvider({ children }) {
       if(response.status === 200){
         const { id, email, nome } = response.data.user;
         const userData = { id, email, nome };
-        //configura localstorage
+      
               localStorage.setItem('token', response.data.Token)
-              localStorage.setItem('user',JSON.stringify(userData)) //tem que transformar em json. Revisar se salva no localstorage o user no back
+              localStorage.setItem('user',JSON.stringify(userData)) 
          setUser(userData);
        
         return true;
@@ -39,7 +38,7 @@ export function AuthProvider({ children }) {
 
     } catch (error) {
       console.error("Erro ao autenticar", error);
-      return false; // Retorna falha
+      return false; 
     }
 
   }
