@@ -12,9 +12,10 @@ const Counter = () => {
         const dashboardResponse = await fetch("http://localhost:3000/dashboard");
         const dashboardData = await dashboardResponse.json();
         setSpotCount(dashboardData.locais);
-        const usersResponse = await fetch("http://localhost:3000/usuario/logado");
+        
+        const usersResponse = await fetch("http://localhost:3000/usuarios/logado");
         const usersData = await usersResponse.json();
-        setUserCount(usersData.usuarios);
+        setUserCount(usersData.length);
 
       } catch (error) {
         console.error("Erro ao buscar usuários e locais:", error);
@@ -26,7 +27,7 @@ const Counter = () => {
   return (
     <div className="counter">
       <div className="cardCounter">
-        <h2>Usuários</h2>
+        <h2>Usuários Ativos</h2>
         <p>{userCount}</p>
       </div>
       <div className="cardCounter">

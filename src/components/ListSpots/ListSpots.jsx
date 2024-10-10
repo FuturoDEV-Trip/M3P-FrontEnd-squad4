@@ -1,5 +1,5 @@
 import "./ListSpots.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Trash, Edit, Eye } from "lucide-react";
 import useAxios from '../../hooks/useAxios';

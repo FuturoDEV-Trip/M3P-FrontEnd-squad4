@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -29,32 +30,12 @@ function FormSpotRegistration() {
     }
   }, [latitude, longitude]);
 
-  // useEffect(() => {
-  //   const getSpots = async () => {
-  //     if (!checkAuth()) return;
-
-  //     try {
-  //       const response = await axiosInstance.get("/locais");
-  //       setSpots(response.data);
-  //     } catch (error) {
-  //       console.error('Erro ao buscar locais', error);
-  //     }
-  //   };
-  //   getSpots();
-  // }, [axiosInstance, checkAuth]);
-
+  
   async function addSpot(data) {
     if (!checkAuth()) return;
 
     try {
-      // const dataSpots = {
-      //   usuario_id: userId,
-      //   nome: "Teste Local",
-      //   descricao: "Descrição de teste",
-      //   localidade: "Rua Exemplo, 123, Exemplo",
-      //   cep: "00000-000",
-      //   coordenadas_geograficas: JSON.stringify({ lat: "-23.5505", lon: "-46.6333" }),
-      // };
+
           const dataSpots = {
         usuario_id: userId,
         nome: data.name,
