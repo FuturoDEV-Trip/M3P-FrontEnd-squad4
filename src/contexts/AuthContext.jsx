@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
-// import { api } from "../services/api";
+
 import axios from 'axios';
 
 export const AuthContext = createContext({
@@ -36,18 +36,7 @@ export function AuthProvider({ children }) {
        
         return true;
             }
-      // const response = await api(`/users?email=${email}`);
-      // const data = await response.json();
 
-      // if (data.length > 0) {
-      //   const usuario = data[0];
-
-      //   if (usuario.password === password) {
-      //     setUser(usuario);
-      //     localStorage.setItem("@tripflow:user", JSON.stringify(usuario));
-      //     return true;
-      //   }
-      // }
     } catch (error) {
       console.error("Erro ao autenticar", error);
       return false; // Retorna falha
@@ -57,9 +46,16 @@ export function AuthProvider({ children }) {
 
   function signOut() {
     setUser(null);
+    async function signOut() {
+      try {
+    const userId = user.id;
+     await axios.post("http://localhost:3000/usuario/logout", { userId });
+       setUser(null);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-  }
+  }catch (error) {
+    console.error("Erro ao deslogar", error);
+  }}
 
   return (
     <AuthContext.Provider value={{ user, signIn, signOut }}>
