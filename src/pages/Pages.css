@@ -46,7 +46,7 @@ nav {
     "header header header"
     "counter counter counter"
     "map category category";
-    grid-template-rows: 8.75rem 3.125rem auto;
+    grid-template-rows: 8.75rem 1.125rem auto;
   height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-position: top;
