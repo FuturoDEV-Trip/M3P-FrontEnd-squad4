@@ -18,7 +18,7 @@ const Header = () => {
     navigate('/login');
   };
 
-    // Verifica se o token existe no localStorage
+
     const isLoggedIn = !!localStorage.getItem('token');
 
   return (
@@ -39,7 +39,7 @@ const Header = () => {
             <>
               <Link to="/cadastro">Cadastre-se aqui</Link>
               <button onClick={clickSignIn}><LogIn /> Login</button>
-              {/* <Link to="/cadastro">Cadastre-se aqui</Link> */}
+
             </>
           )}
         </nav>

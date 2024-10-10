@@ -20,7 +20,7 @@ function FormSpotEdit() {
   const { axiosInstance, checkAuth } = useAxios();
 
   useEffect(() => {
-    if (!checkAuth()) return; // Verifica se o usuário está autenticado
+    if (!checkAuth()) return; 
 
     const getSpot = async () => {
       try {
