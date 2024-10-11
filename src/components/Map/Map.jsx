@@ -10,11 +10,6 @@ const Map = () => {
   const [spots, setSpots] = useState([]);
   const [center, setCenter] = useState([-27.5953, -48.5482]);
 
-  // useEffect(() => {
-  //   if (spots.length > 0) {
-  //     setCenter([spots[0].latitude, spots[0].longitude]);
-  //   }
-  // }, [spots]);
   useEffect(() => {
     const getSpots = async () => {
       try {
