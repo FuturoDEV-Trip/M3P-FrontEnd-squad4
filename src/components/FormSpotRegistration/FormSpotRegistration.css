@@ -13,6 +13,7 @@
   padding-left: 2.5rem;
 padding-bottom: 2.5rem;
   height: fit-content;
+  overflow-y: auto;
   font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
