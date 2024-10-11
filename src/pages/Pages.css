@@ -179,3 +179,13 @@ nav {
   margin-top: 2.3125rem;
   margin-left: 2.3125rem;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+}

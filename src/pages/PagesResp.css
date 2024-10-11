@@ -109,3 +109,17 @@ height: 100vh;
 
   
         }
+
+        /* Ocultar barra de rolagem em telas maiores */
+@media screen and (min-width: 769px) {
+  body {
+    overflow-y: hidden; /* Oculta a barra de rolagem vertical */
+  }
+}
+
+/* Manter a barra de rolagem visível em dispositivos móveis */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-y: auto; /* Permite a rolagem vertical */
+  }
+}

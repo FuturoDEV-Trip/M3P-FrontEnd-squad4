@@ -58,7 +58,7 @@ left: 0.1rem;
 @media screen and (max-width: 48rem) {
   .map {
     position: fixed;
-    top: 21rem;        /* Move para o topo */
+    top: 21rem;       
    left: 0.5rem;
    margin-left:0;
    padding-left:0;
