@@ -5,13 +5,12 @@ import axios from 'axios';
 const useAxios = () => {
   const navigate = useNavigate();
 
-  const apiBaseUrl = "http://localhost:3000"; // URL base da sua API
+  const apiBaseUrl = "http://localhost:3000"; 
 
   const axiosInstance = axios.create({
     baseURL: apiBaseUrl,
   });
 
-  // Interceptar requisições para adicionar o token de autorização
   axiosInstance.interceptors.request.use(config => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -24,7 +23,7 @@ const useAxios = () => {
     const token = localStorage.getItem('token');
     if (!token) {
       alert("Você precisa estar logado para acessar esta página.");
-      navigate("/login"); // Redireciona para a página de login
+      navigate("/login");
       return false;
     }
     return true;

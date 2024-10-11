@@ -13,7 +13,7 @@ function FormSignin() {
     try {
       const isSuccess = await signIn(data);
       if (isSuccess) {
-        navigate("/locais"); //alterei para ir aos locais do usuário
+        navigate("/dashboard"); 
       } else {
         alert("Usuário ou senha incorretos");
       }

@@ -7,7 +7,7 @@ function ImgSignin() {
       <div className="h2signin">
       <img
         className="logotripflowe"
-        src="/public/logotripflowe.png"
+        src="/logotripflowe.png"
         alt="Logo"
       />  
     
