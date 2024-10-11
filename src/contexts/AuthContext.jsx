@@ -35,7 +35,7 @@ export function AuthProvider({ children }) {
        
         return true;
             }
-   
+
     } catch (error) {
       console.error("Erro ao autenticar", error);
       return false; 
@@ -43,14 +43,17 @@ export function AuthProvider({ children }) {
 
   }
 
-  async function signOut() {
-  try {
-const userId = user.id;
- await axios.post("http://localhost:3000/usuario/logout", { userId });
+ async function signOut() {
+  const userId = user?.id;
    setUser(null);
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-  } catch (error) {
+   localStorage.removeItem("token");
+   localStorage.removeItem("user");
+      try {
+        if (userId) {
+          await axios.post("http://localhost:3000/usuario/logout", { userId });
+        }
+  
+  }catch (error) {
     console.error("Erro ao deslogar", error);
   }}
 
