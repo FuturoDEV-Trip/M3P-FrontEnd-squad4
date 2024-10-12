@@ -21,6 +21,14 @@
     grid-template-columns: repeat(5, 1fr);
     width: 100%;
   }
+  body {
+    margin: 0;
+    height: 100vw;
+    overflow: auto; /* Permitir rolagem */
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat; 
+  }
  }
 
   /* Estilos para tablets */
@@ -36,12 +44,19 @@
       grid-template-rows: 8.75rem 3.125rem auto;
       width: 100%;
     }
-  
+ 
     .card-categorias {
       grid-template-columns: repeat(3, 1fr);
       width: 100%;
     }
-    
+    body {
+      margin: 0;
+      height: 100vw;
+      overflow: auto; /* Permitir rolagem */
+      background-size: cover;
+      background-position: fixed;
+      background-repeat: no-repeat; 
+    }
   }
   
   /* Estilos para smartphones */
@@ -82,6 +97,31 @@
 height: 100vh;
   }
 
+  body {
+    margin: 0;
+    height: 100vw;
+    overflow: auto; /* Permitir rolagem */
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat; 
+    background-color: #60C6C0;
+  }
 
-
+  
         }
+
+        /* Ocultar barra de rolagem em telas maiores */
+@media screen and (min-width: 769px) {
+  body {
+    overflow-x: hidden; /* Oculta a barra de rolagem vertical */
+  }
+}
+
+/* Manter a barra de rolagem visível em dispositivos móveis */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-y: auto; /* Permite a rolagem vertical */
+    height: 100vh; /* Altura total da viewport */
+  }
+}

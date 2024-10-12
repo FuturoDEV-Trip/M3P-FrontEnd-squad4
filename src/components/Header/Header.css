@@ -6,7 +6,7 @@
   background: transparent;
   transition: background 0.5s ease;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   z-index: 1000;
   flex-direction: row;
@@ -15,6 +15,8 @@
   padding-right: 11rem;
   row-gap: 11.25rem;
   height: 5.9375rem;
+  justify-content: center;
+
 }
 
 .Header:hover {
@@ -25,14 +27,14 @@
 .Header--navLeft {
   display: flex;
   align-items: center;
-  margin-left: 5rem;
+  margin-left: auto; 
   color: #0f3a5d;
 }
 
 .Header--navLeft a {
   margin-right: 0.625rem;
   padding-left: 5rem;
-  padding-right: 4.375rem;
+  padding-right: 5.375rem;  
   text-decoration: none;
   font-size: 1.0625rem;
   color: rgba(231, 234, 235, 0.8);
@@ -53,17 +55,21 @@
 }
 
 .Header--navLeft .logodash {
-  height: 4rem;
-  width: 7.25rem;
+  height: 5.2rem;
+  width: 9.45rem;
   background-image: url("logotripflowe.png");
   background-size: cover;
   padding-left: 4.375rem;
   padding-bottom: 0.625rem;
+  position: fixed;
+  left: 2.5rem
 }
 
 .Header--navLeft:hover .logodash {
   background-image: url("logotripflow.png");
   padding-bottom: 1.125rem;
+  height: 5.6rem;
+  width: 8.7rem;
 }
 
 .Header--navLeft:hover button {
@@ -89,3 +95,4 @@
 .Header--navLeft button:hover {
   background: rgb(135, 211, 208, 0.4);
 }
+

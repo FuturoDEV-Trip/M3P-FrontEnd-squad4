@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import "./FormSignup.css";
-// import axios from 'axios';
 
 function FormSignup() {
   const {     register,    handleSubmit,    setValue,  formState: { errors }, reset, } = useForm();
@@ -10,15 +9,6 @@ function FormSignup() {
 
   async function addUser(data) {
     try {
-      // const response = await fetch("http://localhost:3000/usuarios");
-      // const users = await response.json();
-      // const existingUser = users.find(
-      //   (user) => user.email === data.email || user.cpf === data.cpf
-      // );
-      // if (existingUser) {
-      //   alert("Usuário já cadastrado com o mesmo email ou CPF");
-      //   return;
-      // }
 
       const resposta = await fetch("http://localhost:3000/usuarios", {
         method: "POST",
@@ -113,16 +103,6 @@ function FormSignup() {
             />
             {errors.data_mascimento && <p>{errors.data_mascimento.message}</p>}
           </label>
-          {/* <label>
-            Telefone *
-            <input
-              className="inputSignup2"
-              placeholder="Digite seu telefone com DDD"
-              name="phone"
-              {...register("phone", { required: "O telefone é obrigatório" })}
-            />
-            {errors.phone && <p>{errors.phone.message}</p>}
-          </label> */}
           <label>
             Sexo
             <select className="inputSignup2" name="sexo" {...register("sexo")}>
