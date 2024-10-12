@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const useAxios = () => {
   const navigate = useNavigate();
 
-  const apiBaseUrl = "http://localhost:3000"; // URL base da sua API
+  const apiBaseUrl = 'https://m3p-backend-squad4-34p5.onrender.com';
+
+  // "http://localhost:3000";  URL base da sua API
 
   const axiosInstance = axios.create({
     baseURL: apiBaseUrl,
