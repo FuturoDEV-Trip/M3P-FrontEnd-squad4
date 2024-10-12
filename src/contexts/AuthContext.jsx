@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
   async function signIn({ email, password }) {
     try {
 
-      const response = await axios.post("http://localhost:3000/login", { //revisar
+      const response = await axios.post("http://localhost:3000/login", { 
         email, 
         password, 
       })       

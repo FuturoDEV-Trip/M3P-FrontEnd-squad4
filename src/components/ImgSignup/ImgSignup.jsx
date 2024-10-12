@@ -11,7 +11,7 @@ function ImgSignup() {
       </div>
       <img
         className="logotripflowformsignupp"
-        src="/public/logotripflow.png"
+        src="/logotripflow.png"
         alt="Logo"
       />   
     </div>

@@ -40,15 +40,7 @@ Ao construir a aplicação proposta, foram colocados em prática os aprendizados
 O projeto de frontend desta aplicação foi construído com a biblioteca de JavaScript, React.js, para permitir a interação com o backend através de uma API RESTful (Projeto Módulo 1), permitindo aos usuários realizar várias ações, como cadastro, listagem, edição e seleção de destinos, visualização de informações dos destinos, entre outras.
 * Documentação do React: `https://reactjs.org/docs/getting-started.html`
 
-   ### JSONServer 
-Documentação do JSONServer: `www.npmjs.com/package/json-server`.
-
- Neste projeto, houve a simulação de criação de um servidor para armazenar e recuperar dados, pelo JSONServer, a partir do arquivo "db.json",  gerando os seguintes EndPoints:
-   1. `http://localhost:3000/usuarios`
-   2. `http://localhost:3000/spots`
-
-
-   ### Context API e LocalStorage
+     ### Context API e LocalStorage
 A aplicação utiliza a Context API do React para gerenciar os dados globais da aplicação. Além disso, o LocalStorage é usado para persistir os dados no estado global, permitindo que os dados do usuário sejam mantidos mesmo após o fechamento e reabertura do navegador e permitindo validações.
 
 
@@ -64,23 +56,23 @@ A aplicação utiliza a Context API do React para gerenciar os dados globais da 
    7. services: contém todas as funções que interagem com a API.
 
    ### Utilização de API VIACEP e API Nominatim
-   A aplicação utiliza a API do ViaCEP para o cadastro de usuário e a API Nominatim para o cadastro de locais, que puxa o endereço e as coordenadas. Aqui, o usuário digita o nome do local e ele já puxa pelo nome, mas também permite puxar por CEP, quando preenchido.
+   A aplicação utiliza a API do ViaCEP para o cadastro de usuário e cadastro de locais, ao puxar pelo CEP, e também a API Nominatim para o cadastro de locais para puxar o endereço e as coordenadas. Aqui, o usuário digita o nome do local e ele já puxa pelo nome, mas também permite puxar por CEP, quando preenchido.
 
 ## 🚀 Rotas e Páginas
-O projeto foi estruturado para que os usuários, a depender do seu tipo de permissão, pudessem utilizar as funcionalidades relacionadas ao Cadastro, ao setor de Atrações Turísticas Privadas de cada usuário e ao setor de Atrações Turísticas Gerais, permitindo o acesso às funcionalidades apenas se o usuário for cadastrado e estiver logado.
+O projeto foi estruturado para que os usuários  pudessem utilizar as funcionalidades relacionadas ao Cadastro, ao setor de Atrações Turísticas Privadas de cada usuário e ao setor de Atrações Turísticas Gerais, permitindo o acesso às funcionalidades apenas se o usuário for cadastrado e estiver logado.
 
    #### Rota para Login: `/login` - Página: SigninPage
-   Inicia com uma página para login e, caso não tenha cadastro, direciona para a página de cadastro.
+   Direciona a uma página para login e, caso não tenha cadastro, direciona para a página de cadastro.
 ![Trip Flow - projeto](https://github.com/Keeity/tripFlowFront/blob/main/src/assets/images/login.jpg)
 
    #### Rota para Cadastro de usuário: `/cadastro` - Página: SignupPage
-A aplicação inclui uma página para cadastrar novos usuários, se já cadastrado, direciona ao login. Os usuários podem se cadastrar fornecendo as informações necessárias e, em seguida, fazer login para acessar a aplicação.
+A aplicação inclui uma página para cadastrar novos usuários, e, se já cadastrado, direciona ao login. Os usuários podem se cadastrar fornecendo as informações necessárias e, em seguida, fazer login para acessar a aplicação.
 
 Todos os inputs de formulário de cadastro foram usados de maneira correta, com validação para garantir que todos os campos obrigatórios fossem preenchidos, além de validações adicionais com HookForm.
 ![Trip Flow - projeto](https://github.com/Keeity/tripFlowFront/blob/main/src/assets/images/cadastroUser.jpg)
 
    #### Rota para Dashboard: `/dashboard` - Página: DashboardPage
-   página de Dashboard foi criada com cards para exibir as informações corretas. Ela fornece uma visão geral dos locais de viagem cadastrados, além de informar a quantidade de Usuário e Locais cadastrados, bem como mapa para visualização de todos os locais. 
+   página de Dashboard foi criada com cards para exibir as informações corretas. Ela fornece uma visão geral dos locais de viagem cadastrados, além de informar a quantidade de Usuários logados e Locais cadastrados, bem como mapa para visualização de todos os locais. 
 ![Trip Flow - projeto](https://github.com/Keeity/tripFlowFront/blob/main/src/assets/images/dashboard.jpg)
 
    #### Rota para Listagem de locais: `/locais` - Página: SpotsPage
@@ -91,7 +83,7 @@ Todos os inputs de formulário de cadastro foram usados de maneira correta, com 
  A aplicação inclui uma página para cadastrar e/ou editar locais de destino da viagem. Os usuários podem fornecer as informações necessárias para criar um novo local de destino ou editar um existente, desde que cadastrado por si.
  ![Trip Flow - projeto](https://github.com/Keeity/tripFlowFront/blob/main/src/assets/images/localregistration.jpg)
 
-#### Rota para Visualização de atração específica cadastrada pelo próprio usuário: /local/:id - Página: SpotViewPage
+#### Rota para Visualização de atrações turísticas: /local/:id - Página: SpotViewPage
 É usada para visualizar os detalhes de um local de destino específico, a partir da seleção no dashboard ou mesmo nos locais (Meus locais). Semelhante à rota de edição, o ID do local de destino é passado como um parâmetro na URL. A aplicação então carrega as informações completas desse local de destino da API e as exibe na página.  Esta página é somente leitura e não permite ao usuário fazer alterações nas informações. Se o usuário desejar editar as informações, ele pode navegar para a rota de edição correspondente.
 ![Trip Flow - projeto](https://github.com/Keeity/tripFlowFront/blob/main/src/assets/images/localviewid.jpg)
 
@@ -109,12 +101,17 @@ No componente RoutesComponent, as rotas para as páginas DashboardPage, SpotsPag
  ## Implementações Extras
 
 ### Responsividade para Diferentes Tipos de Tela: 
-As páginas de login, cadastro de usuário, cadastro de locais, dashboard, etc, receberam a implementação de responsividade para diferentes tamanhos de tela. Isso garante que a aplicação seja facilmente utilizável em uma variedade de dispositivos, incluindo desktops, tablets e smartphones.
+As páginas  receberam a implementação de responsividade para diferentes tamanhos de tela. Isso garante que a aplicação seja facilmente utilizável em uma variedade de dispositivos, incluindo desktops, tablets e smartphones.
 
 ### Uso de Mapas:
  Foi implementado o uso de mapas, e o mesmo está funcionando adequadamente. O mapa foi implementado tanto na página de Dashboard como nas páginas de visualização dos detalhes de cada local.
 
- ## Configurar o Repositório:
+ 
+
+## Acesso ao Projeto pelo Vercel
+`https://m3-p-front-end-squad4-nu.vercel.app/ `
+
+ ## Configurar e rodar no Repositório:
 
    ### Se quiser iniciar o repositório local:
    1. Cria uma pasta local e abre no VsCode
@@ -137,30 +134,35 @@ Para executar o sistema React, você precisa ter o Node.js instalado em seu comp
 
 ## Para acessar as funcionalidades da TripFlow
 
-  ### Para conseguir acessar como administrador(`admin`), utilizar para login uma das opções abaixo:
-
-#### Usuário admin Keeity
-   * email: `keeity@email.com`
-   *  password: `keeity123`
-
-#### Usuário admin Nicholas
-   * email: `nicholas@email.com`
-   *  password: `nicholas123`
+  ### Para conseguir acessar, utilizar para login uma das opções abaixo:
+1. Bruno - email: `bruno@email.com` ,  senha: `senha123`
+2. Rebeca - email: `example1@gmail.com`, senha: `senha123`
+3. Keeity -  email: `keeity@email.com`, senha: `senha123`
+4. Alana - email: `alana@email.com`,senha: `senha123`
+5. Ingo - email: `ingo@email.com`, senha: `senha123`
 
 ## Futuras Melhorias
 
-Em breve, a ideia a ser implementada é integrar com o projeto de backend já criado no módulo 1, além de aperfeiçoar e criar novas páginas para atender a tudo que foi previsto no projeto inicial de backEnd.
- 
-De toda a forma, este é o MVP de uma plataforma que não apenas permite criação e busca de locais turísticos, mas que possibilita ao usuário já ter um roteiro de viagem completo, incluindo locais turísticos, hoteis, restaurantes, o mais personalizado possível.
+Em breve, a ideia a ser implementada é aperfeiçoar e criar novas páginas para atender a tudo que foi previsto no projeto inicial, sendo este MVP de uma plataforma que não apenas permite criação e busca de locais turísticos, mas que possibilita ao usuário já ter um roteiro de viagem completo, incluindo locais turísticos, hoteis, restaurantes, o mais personalizado possível.
 
 ![Trip Flow - projeto](https://github.com/Keeity/tripFlowFront/blob/main/src/assets/images/ideia_final.jpg)
 
-## Links da API
+## Links do Projeto
 
-   ### Repositório do GITHUB
-   `https://github.com/Keeity/tripFlowFront`
-
-   ### Vídeo apresentando a API
+   ### Trello do FrontEnd
    `https://drive.google.com/drive/folders/1B0YLrdVQAEixMW1NGNHfFGGdB-sLxEUM?usp=drive_link`
 
- 
+   ### Repositório do GITHUB
+   `https://github.com/FuturoDEV-Trip/M3P-FrontEnd-squad4`
+
+   ### Acesso ao Projeto pelo Vercel
+   `https://m3-p-front-end-squad4-nu.vercel.app/ `
+
+ ## Integração com BackEnd 
+Foi feita a integração com o backEnd: 
+
+ ### Trello do FrontEnd
+ `https://trello.com/b/m1zd7DX6/m3p-backend-squad-4`
+
+   ### Repositório do GITHUB
+ `https://github.com/FuturoDEV-Trip/M3P-BackEnd-squad4`

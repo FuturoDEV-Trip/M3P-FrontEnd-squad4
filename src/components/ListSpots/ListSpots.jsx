@@ -35,9 +35,7 @@ function ListSpots() {
     };
 
     getSpots();
-  }, []);     // fazia muitas requesições indefinidamente
-
-  // const userSpots = localSpots.filter((spot) => spot.user_id === userId); //Agora não precisa fazer esse filtro
+  }, []);   
 
   const deleteSpot = async (id) => {
     const confirmation = window.confirm("Tem certeza de que deseja excluir este local?");

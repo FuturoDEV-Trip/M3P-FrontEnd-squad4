@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import useAxios from '../../hooks/useAxios';
+import { AuthContext } from "../../contexts/AuthContext"; 
 import "./FormSpotEdit.css";
 
 function FormSpotEdit() {
-  const {
+  const { user } = useContext(AuthContext);
+   const {
     register,
     handleSubmit,
     setValue,
@@ -17,11 +19,15 @@ function FormSpotEdit() {
   const { id } = useParams();
   const [spot, setSpot] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { axiosInstance, checkAuth } = useAxios();
+  const { axiosInstance } = useAxios();
 
   useEffect(() => {
-    if (!checkAuth()) return; // Verifica se o usuário está autenticado
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
 
+  useEffect(() => {
     const getSpot = async () => {
       try {
         const response = await axiosInstance.get(`/locais/${id}`);
@@ -36,7 +42,8 @@ function FormSpotEdit() {
     };
 
     getSpot();
-  }, [id, axiosInstance, checkAuth, spot]);
+  }, [id, axiosInstance, user, spot]);
+
 
   useEffect(() => {
     if (spot) {
@@ -87,9 +94,9 @@ function FormSpotEdit() {
 
   async function getAddress(cep) {
     try {
-      const { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const { data } = await axiosInstance.get(`https://viacep.com.br/ws/${cep}/json/`);
       const fullAddress = `${data.logradouro}, ${data.bairro}, ${data.localidade}/${data.uf}`;
-      const { data: geoData } = await axios.get(
+      const { data: geoData } = await axiosInstance.get(
         `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(fullAddress)}`
       );
 

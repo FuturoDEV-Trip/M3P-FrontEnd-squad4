@@ -11,6 +11,7 @@
   margin: 0 200px;
   min-width: 850px;
   color: rgb(13, 38, 57);
+  margin: 0 auto;
   /* margin-top: 1% ; */
 }
 .listspots h1{
@@ -26,6 +27,9 @@ TBODY{
 }
 .list-categorias {
   row-gap: 10px; 
+    width: 100%; /* Garante que a tabela ocupe toda a largura disponível */
+    border-collapse: collapse; /* Remove espaçamento entre células */
+
 }
 
 .list-category{
@@ -34,7 +38,7 @@ TBODY{
     height: 50px;
     align-items: center;
     border-radius: 5px;
-    border-radius: 8px; */
+    border-radius: 8px; 
 }
 .list-category:hover{
     background-color: rgb(192, 224, 226);
@@ -88,3 +92,4 @@ font-size: 17px;
 .list-category button:hover {
   color: #dc3545;
 }
+

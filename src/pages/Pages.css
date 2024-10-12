@@ -1,3 +1,12 @@
+body {
+  margin: 0;
+  height: 100vh; /* Altura total da viewport */
+  overflow: auto; /* Permitir rolagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* Evitar repetição da imagem */
+}
+
 .grid-signin {
   display: grid;
   grid-template-areas: "formsignin imgsignin ";
@@ -78,6 +87,7 @@ nav {
 .Grid-Category {
   grid-area: category;
   width: 100%;
+  right: 60%;
   display: flex;
   justify-content: flex-end;
   margin-left: auto;
@@ -168,4 +178,14 @@ nav {
   height: 5rem;
   margin-top: 2.3125rem;
   margin-left: 2.3125rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
 }
