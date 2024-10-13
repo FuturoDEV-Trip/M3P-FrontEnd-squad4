@@ -32,7 +32,7 @@ function FormSignin() {
         <h1 className="h1signin">Entrar</h1>
         <img
           className="logotripflowformsignin"
-          src="/public/logotrip.png"
+          src="/logotrip.png"
           alt="Logo"
         />
       </div>
