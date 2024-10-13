@@ -50,7 +50,7 @@ function FormSignup() {
       <div className="imgh1Signup">
         <img
           className="logotripflowformsignin"
-          src="/public/logotrip.png"
+          src="/logotrip.png"
           alt="Logo"
         />
         <h1 className="h1Signup">Cadastre-se</h1>
