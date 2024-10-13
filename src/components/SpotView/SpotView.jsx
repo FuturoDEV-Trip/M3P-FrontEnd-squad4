@@ -11,7 +11,7 @@ function useSpots() {
   useEffect(() => {
     const getSpots = async () => {
     try {
-        const response = await axios.get('http://localhost:3000/locais');
+        const response = await axios.get('https://m3p-backend-squad4-34p5.onrender.com/locais');
         const data = response.data.map(spot => ({
         id: spot.id,
           name: spot.nome,
@@ -50,7 +50,7 @@ function SpotView() {
     const fetchUserName = async () => {
       if (spot) {
         try {
-          const response = await axios.get(`http://localhost:3000/usuarios/${spot.userId}`);
+          const response = await axios.get(`https://m3p-backend-squad4-34p5.onrender.com/usuarios/${spot.userId}`);
           const fullName = response.data.nome;
           const firstName = fullName.split(' ')[0]; // Pega o primeiro nome
           setUserName(firstName);
