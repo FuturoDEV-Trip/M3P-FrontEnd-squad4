@@ -10,7 +10,7 @@ function FormSignup() {
   async function addUser(data) {
     try {
 
-      const resposta = await fetch("http://localhost:3000/usuarios", {
+      const resposta = await fetch("https://m3p-backend-squad4-34p5.onrender.com/usuarios", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
