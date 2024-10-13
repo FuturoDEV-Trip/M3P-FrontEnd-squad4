@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
   async function signIn({ email, password }) {
     try {
 
-      const response = await axios.post("http://localhost:3000/login", { 
+      const response = await axios.post("https://m3p-backend-squad4-34p5.onrender.com/login", { 
         email, 
         password, 
       })       
@@ -50,7 +50,7 @@ export function AuthProvider({ children }) {
    localStorage.removeItem("user");
       try {
         if (userId) {
-          await axios.post("http://localhost:3000/usuario/logout", { userId });
+          await axios.post("https://m3p-backend-squad4-34p5.onrender.com/usuario/logout", { userId });
         }
   
   }catch (error) {
