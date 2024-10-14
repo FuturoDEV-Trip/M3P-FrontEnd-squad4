@@ -51,6 +51,7 @@ export function AuthProvider({ children }) {
       try {
         if (userId) {
           await axios.post("https://m3p-backend-squad4-34p5.onrender.com/usuario/logout", { userId });
+          await axios.put(`https://m3p-backend-squad4-34p5.onrender.com/usuario/${userId}`, { isLogged: false });
         }
   
   }catch (error) {
