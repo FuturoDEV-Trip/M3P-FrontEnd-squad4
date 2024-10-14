@@ -1,69 +1,62 @@
-
-
-
 .listspots {
   display: flex;
   flex-direction: column;
-  gap: 35px;
-  padding: 0,15px,0,0;
+  gap: 2.1875rem; /* 35px */
+  padding: 0 0.9375rem 0 0; /* 15px */
   height: fit-content;
-  border-radius: 5px;
-  margin: 0 200px;
-  min-width: 850px;
-  color: rgb(13, 38, 57);
+  border-radius: 0.3125rem; /* 5px */
   margin: 0 auto;
-  /* margin-top: 1% ; */
+  min-width: 53.125rem; /* 850px */
+  max-width: 62.5rem; /* 1000px */
+  color: rgb(13, 38, 57);
 }
-.listspots h1{
+
+.listspots h1 {
   color: rgb(200, 207, 211);
-  padding: 20PX 0PX 0PX 20PX;
-  text-align:initial;
-font-size: 35px;
-text-shadow: 3px 2px 1px rgb(3, 3, 43);
+  padding: 1.25rem 0 0 1.25rem; /* 20px */
+  text-align: initial;
+  font-size: 2.1875rem; /* 35px */
+  text-shadow: 0.1875rem 0.125rem 0.0625rem rgb(3, 3, 43); /* 3px 2px 1px */
 }
 
-TBODY{
+tbody {
   background: rgb(239, 243, 222); 
 }
+
 .list-categorias {
-  row-gap: 10px; 
-    width: 100%; /* Garante que a tabela ocupe toda a largura disponível */
-    border-collapse: collapse; /* Remove espaçamento entre células */
-
+  row-gap: 0.625rem; /* 10px */
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.list-category{
-  gap: 10px; 
+.list-category {
+  gap: 0.625rem; /* 10px */
   background: rgb(239, 243, 222); 
-    height: 50px;
-    align-items: center;
-    border-radius: 5px;
-    border-radius: 8px; 
+  height: 3.125rem; /* 50px */
+  align-items: center;
+  border-radius: 0.5rem; /* 8px */
 }
-.list-category:hover{
-    background-color: rgb(192, 224, 226);
-    color:rgb(13, 38, 57);
+
+.list-category:hover {
+  background-color: rgb(192, 224, 226);
+  color: rgb(13, 38, 57);
 }
 
 .list-categoria-txt {
-font-size: small;
-text-align: center;
-
+  font-size: small;
+  text-align: center;
 }
 
 .listspots th {
-color: white;
-background-color: rgb(13, 38, 57, 0.9);
-height: 50px;
-font-size: 17px;
-
+  color: white;
+  background-color: rgba(13, 38, 57, 0.9);
+  height: 3.125rem; /* 50px */
+  font-size: 1.0625rem; /* 17px */
 }
-.list-category td {
-  padding: 8px;
-  border:none;
-  
-  
 
+.list-category td {
+  padding: 0.5rem; /* 8px */
+  border: none;
 }
 
 .list-category a,
@@ -80,16 +73,16 @@ font-size: 17px;
 
 .list-category a {
   text-decoration: none;
-  color: #007bff; }
+  color: #007bff; 
+}
 
 .list-category button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-} */
+}
 
 .list-category button:hover {
   color: #dc3545;
 }
-
