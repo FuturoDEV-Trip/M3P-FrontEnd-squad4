@@ -7,7 +7,7 @@ function CardSpots() {
   const [spots, setSpots] = useState([]);
 
   useEffect(() => {
-    // axios.get("http://localhost:3000/locais")
+
     axios.get('https://m3p-backend-squad4-34p5.onrender.com/locais')
       .then(response => {
         setSpots(response.data);
