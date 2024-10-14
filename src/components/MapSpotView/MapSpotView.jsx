@@ -2,6 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MapSpotView.css";
+import { MapPin } from 'lucide-react'
 import { Link } from "react-router-dom";
 
 const MapSpotView = ({ center, spots }) => {
@@ -25,7 +26,7 @@ const MapSpotView = ({ center, spots }) => {
               <div className="linkmapspotview">
                 {/* <Link to={`/local/${spot.id}`}>Ver Detalhes</Link> */}
                 <a
-                  href={[spot.latitude, spot.longitude]}
+                href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -33,6 +34,9 @@ const MapSpotView = ({ center, spots }) => {
                 </a>
               </div>
             </Popup>
+            <div style={{ position: 'absolute', transform: 'translate(-50%, -100%)' }}>
+              <MapPin color="blue" size={32} /> {/* ** Ícone de pin em azul ** */}
+            </div>
           </Marker>
         ))}
       </MapContainer>

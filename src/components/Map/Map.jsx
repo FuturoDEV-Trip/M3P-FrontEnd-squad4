@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapPin } from 'lucide-react';
 import { useSpots } from "../../hooks/useSpots";
 import axios from "axios";
 import "leaflet/dist/leaflet.css";
@@ -55,7 +56,7 @@ const Map = () => {
               <div className="linkmap">
                 <Link to={`/local/${spot.id}`}>Ver Detalhes</Link>
                 <a
-                  href={spot.geoLocality}
+                href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -63,6 +64,9 @@ const Map = () => {
                 </a>
               </div>
             </Popup>
+            <div style={{ position: 'absolute', transform: 'translate(-50%, -100%)' }}>
+              <MapPin color="blue" size={32} /> {/* Ícone de pin em azul */}
+            </div>
           </Marker>
         ))}
       </MapContainer>
