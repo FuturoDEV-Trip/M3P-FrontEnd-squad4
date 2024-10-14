@@ -1,18 +1,10 @@
 import axios from "axios";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { MapPin } from 'lucide-react';
 import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 import "./Map.css";
-
-
-const customIcon = new L.Icon({
-  iconUrl: require("https://img.icons8.com/?size=48&id=OBmVbH2qOGwK&format=png"),
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32]
-});
 
 const Map = () => {
   const [spots, setSpots] = useState([]);
@@ -42,6 +34,7 @@ const Map = () => {
     getSpots();
   }, []);
 
+
   return (
     <div className="map">
       <MapContainer
@@ -54,7 +47,7 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {spots.map((spot) => (
-          <Marker key={spot.id} position={[spot.latitude, spot.longitude]} icon={customIcon}>
+          <Marker key={spot.id} position={[spot.latitude, spot.longitude]}>
             <Popup>
               <strong>{spot.name}</strong>
               <br />
@@ -62,7 +55,7 @@ const Map = () => {
               <div className="linkmap">
                 <Link to={`/local/${spot.id}`}>Ver Detalhes</Link>
                 <a
-                  href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
+                href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -70,6 +63,9 @@ const Map = () => {
                 </a>
               </div>
             </Popup>
+            <div style={{ position: 'absolute', transform: 'translate(-50%, -100%)' }}>
+              <MapPin color="blue" size={32} /> {/* Ícone de pin em azul */}
+            </div>
           </Marker>
         ))}
       </MapContainer>
