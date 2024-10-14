@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+authcontext: import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 import axios from 'axios';
 import { api } from "../../services/api"
@@ -42,7 +42,7 @@ export function AuthProvider({ children }) {
     }
 
     async function signOut() {
-        const userId = user?.id;  
+        const userId = user?.id;
         setUser(null);
         localStorage.removeItem("token");
         localStorage.removeItem("user");
