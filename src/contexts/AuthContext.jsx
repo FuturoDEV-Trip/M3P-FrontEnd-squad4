@@ -1,6 +1,8 @@
-import { createContext, useState } from "react";
+authcontext: import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 import axios from 'axios';
+import { api } from "../../services/api"
+import { useNavigate } from 'react-router-dom'
 
 export const AuthContext = createContext({
     user: null,
@@ -14,9 +16,11 @@ export function AuthProvider({ children }) {
         return userStorage ? JSON.parse(userStorage) : null;
     });
 
+    const navigate = useNavigate();
+
     async function signIn({ email, password }) {
         try {
-            const response = await axios.post("https://m3p-backend-squad4-34p5.onrender.com/login", { 
+            const response = await api.post("/login", { 
                 email, 
                 password, 
             });
@@ -38,18 +42,20 @@ export function AuthProvider({ children }) {
     }
 
     async function signOut() {
-        const userId = user?.id;  
+        const userId = user?.id;
         setUser(null);
         localStorage.removeItem("token");
         localStorage.removeItem("user");
 
         try {
             if (userId) {
-                await axios.post("https://m3p-backend-squad4-34p5.onrender.com/usuarios/logout", { userId });
+                await api.post("usuarios/logout", { userId });
             }
         } catch (error) {
             console.error("Erro ao deslogar", error);
-        }
+            } finally {
+        navigate("/"); 
+      }
     }
 
     return (
