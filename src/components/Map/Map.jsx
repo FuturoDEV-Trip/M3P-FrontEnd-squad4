@@ -8,7 +8,7 @@ import "./Map.css";
 
 
 const customIcon = new L.Icon({
-  iconUrl: require("../../assets/map-pin-blue.png"),
+  iconUrl: require("https://img.icons8.com/?size=48&id=OBmVbH2qOGwK&format=png"),
   iconSize: [32, 32],
   iconAnchor: [16, 32],
   popupAnchor: [0, -32]
