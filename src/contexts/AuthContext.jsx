@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 import axios from 'axios';
-import { api } from "../../services/api"
+// import { api } from "../../services/api"
 import { useNavigate } from 'react-router-dom'
 
 export const AuthContext = createContext({
@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
 
     async function signIn({ email, password }) {
         try {
-            const response = await api.post("/login", { 
+            const response = await axios.post("https://m3p-backend-squad4-34p5.onrender.com/login", { 
                 email, 
                 password, 
             });
@@ -49,7 +49,7 @@ export function AuthProvider({ children }) {
 
         try {
             if (userId) {
-                await api.post("usuarios/logout", { userId });
+             await axios.post("https://m3p-backend-squad4-34p5.onrender.com/usuario/logout", { userId });
             }
         } catch (error) {
             console.error("Erro ao deslogar", error);
