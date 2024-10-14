@@ -1,6 +1,5 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { MapPin } from 'lucide-react';
 import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "./MapSpotView.css";
@@ -14,7 +13,7 @@ const MapSpotView = ({ center, spots }) => {
                <circle cx="12" cy="10" r="3"></circle>
              </svg>
            </div>`,
-    className: ""
+    className: "custom-icon"
   });
 
   return (
