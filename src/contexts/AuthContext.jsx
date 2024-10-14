@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import { createContext, useState } from "react";
-// import { useNavigate } from 'react-router-dom';
-import { api } from '../services/api';
+import axios from 'axios';
+// import { api } from "../../services/api"
+import { useNavigate } from 'react-router-dom'
+
 
 export const AuthContext = createContext({
     user: null,
@@ -19,9 +20,9 @@ export function AuthProvider({ children }) {
 
     async function signIn({ email, password }) {
         try {
-            const response = await api.post("/login", {
-                email,
-                password,
+            const response = await axios.post("https://m3p-backend-squad4-34p5.onrender.com/login", { 
+                email, 
+                password, 
             });
 
             if (response.status === 200) {
@@ -48,7 +49,7 @@ export function AuthProvider({ children }) {
 
         try {
             if (userId) {
-                await api.post("usuarios/logout", { userId });
+             await axios.post("https://m3p-backend-squad4-34p5.onrender.com/usuario/logout", { userId });
             }
             return true;
         } catch (error) {
