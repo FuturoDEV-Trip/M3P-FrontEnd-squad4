@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { createContext, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 
 export const AuthContext = createContext({
@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
         return userStorage ? JSON.parse(userStorage) : null;
     });
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     async function signIn({ email, password }) {
         try {
@@ -50,10 +50,13 @@ export function AuthProvider({ children }) {
             if (userId) {
                 await api.post("usuarios/logout", { userId });
             }
+            return true;
         } catch (error) {
             console.error("Erro ao deslogar", error);
+            return false;
         } finally {
-            navigate("/");
+            console.log('aqui va')
+            // navigate("/");
         }
     }
 
