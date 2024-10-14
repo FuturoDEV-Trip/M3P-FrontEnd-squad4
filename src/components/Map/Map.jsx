@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react"; // Importe o ícone da Lucide
 import "./Map.css";
 
+
 // Função para criar um ícone Lucide
 const createIcon = () => {
   const svgIcon = document.createElement('div');
@@ -19,6 +20,7 @@ const createIcon = () => {
     popupAnchor: [0, -32]
   });
 };
+
 
 const Map = () => {
   const [spots, setSpots] = useState([]);
