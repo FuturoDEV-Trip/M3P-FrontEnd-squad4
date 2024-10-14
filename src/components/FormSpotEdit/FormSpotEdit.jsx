@@ -152,22 +152,26 @@ function FormSpotEdit() {
 
         <div className="blocform3">
           <label className="cepspotsedit">
-            CEP
-            <input
-              className="inputspotedit"
-              placeholder="Digite o CEP"
-              {...register("cep", {
-                validate: async (value) => {
-                  if (value && value.length !== 8) {
-                    return "CEP deve ter 8 dígitos, sem hífen.";
-                  }
-                  if (value) {await getAddress(value);
-                  } return true;
-                },
-              })}
-              onBlur={(e) => getAddress(e.target.value)}
-            />
-            {errors.cep && <p>{errors.cep.message}</p>}
+          CEP
+<input
+  className="inputspotedit"
+  placeholder="Digite o CEP"
+  {...register("cep", {
+    required: "CEP é obrigatório",
+    validate: async (value) => {
+      if (value && !/^\d{8}$/.test(value)) {
+        return "CEP deve ter exatamente 8 dígitos, sem hífen.";
+      }
+      if (value) {
+        const address = await getAddress(value);
+        return address || "Endereço inválido"; // Ajuste conforme a lógica do seu getAddress
+      }
+      return true; // Retorna true se o campo estiver vazio
+    },
+  })}
+  onBlur={(e) => getAddress(e.target.value)}
+/>
+{errors.cep && <p>{errors.cep.message}</p>}
           </label>
         </div>
 

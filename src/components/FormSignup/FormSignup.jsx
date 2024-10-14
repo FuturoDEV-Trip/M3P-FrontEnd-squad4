@@ -115,23 +115,25 @@ function FormSignup() {
           </label>
           <label>
             CEP *
-            <input
-              className="inputSignup2"
-              placeholder="Digite seu CEP"
-              name="cep"
-              {...register("cep", {
-                required: "CEP é obrigatório",
-                validate: async (value) => {
-                  if (value.length !== 8 && value.length !== 9) {
-                    return "CEP deve ter 8 ou 9 dígitos";
-                  }
-                  await getAddress(value);
-                  return true;
-                },
-              })}
-              onBlur={async (e) => await getAddress(e.target.value)}
-            />
-            {errors.cep && <p>{errors.cep.message}</p>}
+      
+<input
+  className="inputSignup2"
+  placeholder="Digite seu CEP"
+  name="cep"
+  {...register("cep", {
+    required: "CEP é obrigatório",
+    validate: {
+      isEightDigits: value => 
+        /^\d{8}$/.test(value) || "CEP deve ter exatamente 8 dígitos",
+      validAddress: async value => {
+        const address = await getAddress(value);
+        return address || "Endereço inválido"; // Ajuste conforme a lógica do seu getAddress
+      },
+    },
+  })}
+  onBlur={async (e) => await getAddress(e.target.value)}
+/>
+{errors.cep && <p>{errors.cep.message}</p>}
           </label>
           <label>
             Endereço *

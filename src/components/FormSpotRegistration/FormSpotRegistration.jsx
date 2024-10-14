@@ -147,9 +147,14 @@ function FormSpotRegistration() {
               className="inputspotregistration2"
               placeholder="Digite o CEP"
               {...register("cep", {
-                validate: async (value) => {
-                  await getAddress(value);
-                  return true;
+                validate: {
+                  isEightDigits: value => 
+                    value === '' || /^\d{8}$/.test(value) || "O CEP deve ter exatamente 8 dígitos",
+                  validAddress: async value => {
+                    if (value !== '') {
+                      const address = await getAddress(value);
+                      return address || "Endereço inválido"} // Ajuste conforme a lógica do seu getAddress
+                  },
                 },
               })}
               onBlur={(e) => getAddress(e.target.value)}
