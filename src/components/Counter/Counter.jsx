@@ -1,4 +1,5 @@
 import "./Counter.css";
+import { api } from "../../services/api"
 
 import { useState, useEffect } from "react";
 
@@ -9,13 +10,11 @@ const Counter = () => {
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const dashboardResponse = await fetch("https://m3p-backend-squad4-34p5.onrender.com/dashboard");
-        const dashboardData = await dashboardResponse.json();
-        setSpotCount(dashboardData.locais);
-        
-        const usersResponse = await fetch("https://m3p-backend-squad4-34p5.onrender.com/usuarios/logado");
-        const usersData = await usersResponse.json();
-        setUserCount(usersData.length);
+        const dashboardResponse = await api("/dashboard", { method: "GET" });
+        setSpotCount(dashboardResponse.data.locais);
+
+        const usersResponse = await api("/usuarios/logado", { method: "GET" });
+        setUserCount(usersResponse.data.length);
 
       } catch (error) {
         console.error("Erro ao buscar usuários e locais:", error);
