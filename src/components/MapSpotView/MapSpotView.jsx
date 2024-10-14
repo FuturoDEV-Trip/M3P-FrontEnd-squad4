@@ -1,9 +1,16 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import React from "react";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "./MapSpotView.css";
-import { MapPin } from 'lucide-react'
-import { Link } from "react-router-dom";
+
+
+const customIcon = new L.Icon({
+  iconUrl: require("../../assets/map-pin-blue.png"),
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32]
+});
 
 const MapSpotView = ({ center, spots }) => {
   return (
@@ -18,15 +25,14 @@ const MapSpotView = ({ center, spots }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {spots.map((spot) => (
-          <Marker key={spot.id} position={[spot.latitude, spot.longitude]}>
+          <Marker key={spot.id} position={[spot.latitude, spot.longitude]} icon={customIcon}>
             <Popup>
               <strong>{spot.name}</strong>
               <br />
               {spot.description}
               <div className="linkmapspotview">
-                {/* <Link to={`/local/${spot.id}`}>Ver Detalhes</Link> */}
                 <a
-                href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
+                  href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -34,9 +40,6 @@ const MapSpotView = ({ center, spots }) => {
                 </a>
               </div>
             </Popup>
-            <div style={{ position: 'absolute', transform: 'translate(-50%, -100%)' }}>
-              <MapPin color="blue" size={32} /> {/* ** Ícone de pin em azul ** */}
-            </div>
           </Marker>
         ))}
       </MapContainer>
