@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 import "./Map.css";
+import { api } from "../../services/api"
 
 const Map = () => {
   const [spots, setSpots] = useState([]);
@@ -13,7 +14,7 @@ const Map = () => {
   useEffect(() => {
     const getSpots = async () => {
       try {
-        const response = await axios.get("https://m3p-backend-squad4-34p5.onrender.com/locais");
+        const response = await api("/locais");
         const data = response.data.map(spot => ({
           id: spot.id,
           name: spot.nome,

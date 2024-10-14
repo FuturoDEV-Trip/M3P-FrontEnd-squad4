@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
+import { api } from "../../services/api"
 import "./FormSignup.css";
 
 function FormSignup() {
@@ -10,14 +10,14 @@ function FormSignup() {
   async function addUser(data) {
     try {
 
-      const resposta = await fetch("https://m3p-backend-squad4-34p5.onrender.com/usuarios", {
+      const resposta = await api("/usuarios", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-      if (!resposta.ok) {
+      if (!resposta.status === 200) {
         alert("Erro ao cadastrar usuário");
       } else {
         alert("Usuário cadastrado com sucesso!");

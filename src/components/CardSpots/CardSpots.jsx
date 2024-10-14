@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../../services/api"
 import "./CardSpots.css";
 import { Link } from "react-router-dom";
 
@@ -7,8 +7,8 @@ function CardSpots() {
   const [spots, setSpots] = useState([]);
 
   useEffect(() => {
-    // axios.get("http://localhost:3000/locais")
-    axios.get('https://m3p-backend-squad4-34p5.onrender.com/locais')
+
+    api('/locais', { method: 'GET' })
       .then(response => {
         setSpots(response.data);
       })
