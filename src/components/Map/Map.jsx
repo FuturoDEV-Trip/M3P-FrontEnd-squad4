@@ -33,10 +33,12 @@ const Map = () => {
     getSpots();
   }, []);
 
-  // Custom icon using MapPin from lucide-react library
-  const customIcon = L.divIcon({
-    html: '<div style="transform: translate(-50%, -100%); color: blue;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>',
-    className: "custom-icon"
+  // Custom icon using an image from public/logotrip.png
+  const customIcon = L.icon({
+    iconUrl: '/logotrip.png',
+    iconSize: [32, 32], // size of the icon
+    iconAnchor: [16, 32], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -32] // point from which the popup should open relative to the iconAnchor
   });
 
   return (
