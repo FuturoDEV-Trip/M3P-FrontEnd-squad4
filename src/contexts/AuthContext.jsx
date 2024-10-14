@@ -1,13 +1,12 @@
-authcontext: import { createContext, useState } from "react";
 import PropTypes from "prop-types";
-import axios from 'axios';
-import { api } from "../../services/api"
-import { useNavigate } from 'react-router-dom'
+import { createContext, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { api } from "../../services/api";
 
 export const AuthContext = createContext({
     user: null,
-    signIn: async () => {},
-    signOut: () => {},
+    signIn: async () => { },
+    signOut: () => { },
 });
 
 export function AuthProvider({ children }) {
@@ -20,14 +19,14 @@ export function AuthProvider({ children }) {
 
     async function signIn({ email, password }) {
         try {
-            const response = await api.post("/login", { 
-                email, 
-                password, 
+            const response = await api.post("/login", {
+                email,
+                password,
             });
 
             if (response.status === 200) {
                 const { id, email, nome } = response.data.user;
-                const userData = { id, email, nome }; 
+                const userData = { id, email, nome };
 
                 localStorage.setItem('token', response.data.Token);
                 localStorage.setItem('user', JSON.stringify(userData));
@@ -37,7 +36,7 @@ export function AuthProvider({ children }) {
             }
         } catch (error) {
             console.error("Erro ao autenticar", error);
-            return false; 
+            return false;
         }
     }
 
@@ -53,9 +52,9 @@ export function AuthProvider({ children }) {
             }
         } catch (error) {
             console.error("Erro ao deslogar", error);
-            } finally {
-        navigate("/"); 
-      }
+        } finally {
+            navigate("/");
+        }
     }
 
     return (
