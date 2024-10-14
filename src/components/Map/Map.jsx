@@ -4,15 +4,23 @@ import "leaflet/dist/leaflet.css";
 import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
+import { MapPin } from "lucide-react"; // Importe o ícone da Lucide
 import "./Map.css";
 
 
-const customIcon = new L.Icon({
-  iconUrl: require("https://img.icons8.com/?size=48&id=OBmVbH2qOGwK&format=png"),
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32]
-});
+// Função para criar um ícone Lucide
+const createIcon = () => {
+  const svgIcon = document.createElement('div');
+  svgIcon.innerHTML = MapPin({ size: 32, color: 'blue' }); // Customize o tamanho e a cor
+  return L.divIcon({
+    className: 'lucide-icon',
+    html: svgIcon.innerHTML,
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32]
+  });
+};
+
 
 const Map = () => {
   const [spots, setSpots] = useState([]);
@@ -41,6 +49,8 @@ const Map = () => {
 
     getSpots();
   }, []);
+
+  const customIcon = createIcon(); // Chame a função para criar o ícone
 
   return (
     <div className="map">
