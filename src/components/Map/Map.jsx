@@ -33,12 +33,12 @@ const Map = () => {
     getSpots();
   }, []);
 
-  // Custom icon using an image from public/logotrip.png
+
   const customIcon = L.icon({
     iconUrl: '/logotrip.png',
-    iconSize: [32, 32], // size of the icon
-    iconAnchor: [16, 32], // point of the icon which will correspond to marker's location
-    popupAnchor: [0, -32] // point from which the popup should open relative to the iconAnchor
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32]
   });
 
   return (

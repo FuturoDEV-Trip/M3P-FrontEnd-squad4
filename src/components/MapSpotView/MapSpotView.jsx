@@ -5,16 +5,16 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "./MapSpotView.css";
 
 const MapSpotView = ({ center, spots }) => {
-  // Custom icon using an image from public/logotrip.png
+  // Custom icon using an image from public/logotrip.png // cspell: disable-line
   const customIcon = L.icon({
-    iconUrl: '/logotrip.png',
+    iconUrl: '/logotrip.png', // cspell: disable-line
     iconSize: [32, 32], // size of the icon
     iconAnchor: [16, 32], // point of the icon which will correspond to marker's location
     popupAnchor: [0, -32] // point from which the popup should open relative to the iconAnchor
   });
 
   return (
-    <div className="mapspotview">
+    <div className="mapspotview"> {/* cspell: disable-line */}
       <MapContainer
         center={center}
         zoom={12}
@@ -30,7 +30,7 @@ const MapSpotView = ({ center, spots }) => {
               <strong>{spot.name}</strong>
               <br />
               {spot.description}
-              <div className="linkmapspotview">
+              <div className="linkmapspotview"> {/* cspell: disable-line */}
                 <a
                   href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
                   target="_blank"
