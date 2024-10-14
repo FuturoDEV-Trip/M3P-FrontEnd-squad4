@@ -1,26 +1,10 @@
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { MapPin } from 'lucide-react';
 import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { MapPin } from "lucide-react"; // Importe o ícone da Lucide
 import "./MapSpotView.css";
 
-// Função para criar um ícone a partir do componente Lucide
-const createIcon = () => {
-  const svgIcon = document.createElement('div');
-  svgIcon.innerHTML = MapPin({ size: 32, color: 'blue' }); // Customize o tamanho e a cor
-  return L.divIcon({
-    className: 'lucide-icon',
-    html: svgIcon.innerHTML,
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
-  });
-};
-
 const MapSpotView = ({ center, spots }) => {
-  const customIcon = createIcon(); // Chame a função para criar o ícone
-
   return (
     <div className="mapspotview">
       <MapContainer
@@ -33,14 +17,15 @@ const MapSpotView = ({ center, spots }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {spots.map((spot) => (
-          <Marker key={spot.id} position={[spot.latitude, spot.longitude]} icon={customIcon}>
+          <Marker key={spot.id} position={[spot.latitude, spot.longitude]}>
             <Popup>
               <strong>{spot.name}</strong>
               <br />
               {spot.description}
               <div className="linkmapspotview">
+                {/* <Link to={`/local/${spot.id}`}>Ver Detalhes</Link> */}
                 <a
-                  href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
+                href={`https://www.google.com/maps/?q=${spot.latitude},${spot.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -48,6 +33,9 @@ const MapSpotView = ({ center, spots }) => {
                 </a>
               </div>
             </Popup>
+            <div style={{ position: 'absolute', transform: 'translate(-50%, -100%)' }}>
+              <MapPin color="blue" size={32} /> {/* ** Ícone de pin em azul ** */}
+            </div>
           </Marker>
         ))}
       </MapContainer>
