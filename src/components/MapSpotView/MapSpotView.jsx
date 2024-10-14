@@ -23,13 +23,13 @@ const MapSpotView = ({ center, spots }) => {
               <br />
               {spot.description}
               <div className="linkmapspotview">
-                <Link to={`/local/${spot.id}`}>Ver Detalhes</Link>
+                {/* <Link to={`/local/${spot.id}`}>Ver Detalhes</Link> */}
                 <a
-                  href={spot.geoLocality}
+                  href={[spot.latitude, spot.longitude]}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Traçar rota no Maps
+                  Ver no Maps
                 </a>
               </div>
             </Popup>
