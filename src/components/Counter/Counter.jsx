@@ -13,7 +13,7 @@ const Counter = () => {
         const dashboardData = await dashboardResponse.json();
         setSpotCount(dashboardData.locais);
         
-        const usersResponse = await fetch("https://m3p-backend-squad4-34p5.onrender.com/logado");
+        const usersResponse = await fetch("https://m3p-backend-squad4-34p5.onrender.com/usuarios/logado");
         const usersData = await usersResponse.json();
         setUserCount(usersData.length);
 
