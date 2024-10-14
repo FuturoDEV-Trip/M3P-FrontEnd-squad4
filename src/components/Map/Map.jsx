@@ -1,10 +1,10 @@
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import React, { useEffect, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { Link } from "react-router-dom";
-import { api } from "../../services/api";
-import "./Map.css";
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Link } from 'react-router-dom';
+import { api } from '../../services/api';
+import './Map.css';
 
 const Map = () => {
   const [spots, setSpots] = useState([]);
