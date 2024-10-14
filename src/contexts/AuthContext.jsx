@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 import axios from 'axios';
 import { api } from "../../services/api"
+import { useNavigate } from 'react-router-dom'
 
 export const AuthContext = createContext({
     user: null,
@@ -14,6 +15,8 @@ export function AuthProvider({ children }) {
         const userStorage = localStorage.getItem("user");
         return userStorage ? JSON.parse(userStorage) : null;
     });
+
+    const navigate = useNavigate();
 
     async function signIn({ email, password }) {
         try {
@@ -50,7 +53,9 @@ export function AuthProvider({ children }) {
             }
         } catch (error) {
             console.error("Erro ao deslogar", error);
-        }
+            } finally {
+        navigate("/"); 
+      }
     }
 
     return (
