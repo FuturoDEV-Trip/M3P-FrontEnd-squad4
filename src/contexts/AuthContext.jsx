@@ -1,4 +1,4 @@
-authcontext: import { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 import axios from 'axios';
 import { api } from "../../services/api"
